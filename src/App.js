@@ -1,9 +1,11 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import LandingPage from "./pages/LandingPage";
 
 function App() {
   return (
@@ -13,9 +15,7 @@ function App() {
           <LoginPage />
         </Col>
 
-        <Col>
-        col b
-        </Col>
+        <Col>col b</Col>
       </Row>
     </Container>
   );
