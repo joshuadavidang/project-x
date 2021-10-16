@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   getAuth,
@@ -7,24 +7,22 @@ import {
 } from "firebase/auth";
 // eslint-disable-next-line
 import app from "../firebase";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const SignUpPage = () => {
   const [email, setEmailState] = useState("");
   const [password, setPasswordState] = useState("");
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  // const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  useEffect(() => {
-    console.log(isAuthenticated);
-  }, []);
-
-  let history = useHistory();
+  // useEffect(() => {
+  //   console.log(isAuthenticated);
+  // }, []);
 
   const signUpBtn = () => {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
+      .then(() => {
         sendEmailVerification(auth.currentUser).then(() => {
           Swal.fire({
             text: "Click on the link in your email to verify your account.",
@@ -56,7 +54,7 @@ const SignUpPage = () => {
                 Email
               </label>
               <input
-                className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
+                className="border rounded-lg px-3 py-2 mt-1 mb-4 text-sm w-full"
                 type="email"
                 name="email"
                 value={email}
@@ -65,6 +63,7 @@ const SignUpPage = () => {
               <label className="font-semibold text-sm text-gray-600 pb-1 block">
                 Password
               </label>
+
               <input
                 type="password"
                 name="password"
@@ -72,6 +71,7 @@ const SignUpPage = () => {
                 onChange={(e) => setPasswordState(e.target.value)}
                 className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
               />
+
               <button
                 onClick={signUpBtn}
                 type="button"

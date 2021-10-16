@@ -13,12 +13,9 @@ const LoginPage = () => {
   const [password, setPasswordState] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  let [loading, setLoading] = useState(true);
-  let [color, setColor] = useState("#ffffff");
-
   useEffect(() => {
     console.log(isAuthenticated);
-  }, []);
+  }, [isAuthenticated]);
 
   let history = useHistory();
 
@@ -32,10 +29,13 @@ const LoginPage = () => {
         if (user.emailVerified === true) {
           setIsAuthenticated(true);
           Swal.fire("", "Signed in successful", "success");
-
           history.push("/landingpage");
         } else {
-          alert("email not verified");
+          Swal.fire({
+            text: "Please verify your email before attempting to login",
+            icon: "warning",
+            confirmButtonText: "OK",
+          });
         }
       })
       .catch((error) => {
@@ -61,7 +61,7 @@ const LoginPage = () => {
                 Email
               </label>
               <input
-                className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
+                className="border rounded-lg px-3 py-2 mt-1 mb-4 text-sm w-full"
                 type="email"
                 name="email"
                 value={email}
@@ -70,6 +70,7 @@ const LoginPage = () => {
               <label className="font-semibold text-sm text-gray-600 pb-1 block">
                 Password
               </label>
+
               <input
                 type="password"
                 name="password"
@@ -77,6 +78,7 @@ const LoginPage = () => {
                 onChange={(e) => setPasswordState(e.target.value)}
                 className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
               />
+
               <button
                 onClick={loginBtn}
                 type="button"
