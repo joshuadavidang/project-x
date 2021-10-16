@@ -10,6 +10,7 @@ const LandingPage = () => {
 
   useEffect(() => {
     const auth = getAuth();
+    console.log(auth);
     console.log(
       auth.currentUser.email +
         " email verified: " +
@@ -51,10 +52,10 @@ const LandingPage = () => {
     <>
       <div class="">
         <div class="flex flex-row flex-wrap">
-          <aside class="w-full sm:w-1/3 md:w-1/4">
+          <aside class="w-full md:w-1/4">
             <div>
               <ul class="flex flex-col overflow-hidden">
-                <nav className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 flex flex-col w-full h-screen px-4 text-white ">
+                <nav className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 flex flex-col h-screen px-4 text-white ">
                   <div className="flex justify-center m-8">
                     <img
                       src={Joshua}
@@ -68,19 +69,19 @@ const LandingPage = () => {
                   </div>
 
                   <div className="m-2 cursor-pointer">
-                    <ul>
+                    <ul onClick={() => alert("Under Construction")}>
                       <li className="text-center py-3.5 hover:text-white hover:bg-black hover:font-bold rounded rounded-lg">
                         <span>English</span>
                       </li>
                     </ul>
 
-                    <ul>
+                    <ul onClick={() => alert("Under Construction")}>
                       <li className="text-center py-3.5 hover:text-white hover:bg-black hover:font-bold rounded rounded-lg">
                         <span>Math</span>
                       </li>
                     </ul>
 
-                    <ul>
+                    <ul onClick={() => alert("Under Construction")}>
                       <li className="text-center py-3.5 hover:text-white hover:bg-black hover:font-bold rounded rounded-lg">
                         <span>Science</span>
                       </li>
