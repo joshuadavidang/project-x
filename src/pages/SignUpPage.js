@@ -89,6 +89,13 @@ const SignUpPage = () => {
               >
                 <span className="inline-block">Sign Up</span>
               </button>
+
+              <p className="text-center pt-7 text-gray-600">
+                Have an account? Login{" "}
+                <Link to="/">
+                  <span className="hover:text-green-400 font-bold">here</span>
+                </Link>
+              </p>
             </div>
           </div>
         </div>
