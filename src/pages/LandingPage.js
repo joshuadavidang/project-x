@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Joshua from "../assets/images/joshua.jpeg";
 import { getAuth, signOut } from "firebase/auth";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const LandingPage = () => {
+  const [getEmail, setGetEmail] = useState("");
   let history = useHistory();
+
+  useEffect(() => {
+    console.log(history);
+    const auth = getAuth();
+    console.log(auth.currentUser.email);
+    setGetEmail(auth.currentUser.email);
+  }, []);
 
   const signOutBtn = () => {
     const auth = getAuth();
@@ -27,6 +35,10 @@ const LandingPage = () => {
       <nav className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 flex flex-col  w-64 h-screen px-4 text-white ">
         <div className="flex justify-center m-8">
           <img src={Joshua} className=" w-20 h-20 rounded-full" />
+        </div>
+
+        <div className="text-center">
+          <span >{getEmail}</span>
         </div>
 
         <div className="m-2 cursor-pointer">

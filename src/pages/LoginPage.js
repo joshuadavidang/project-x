@@ -28,7 +28,7 @@ const LoginPage = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
-
+        setIsAuthenticated(true);
         Swal.fire("", "Signed in successful", "success");
 
         history.push("/landingpage");
