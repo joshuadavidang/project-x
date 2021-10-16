@@ -90,7 +90,8 @@ const LoginPage = () => {
               <button
                 onClick={loginBtn}
                 type="button"
-                className="transition duration-200 bg-red-500 hover:bg-red-600 focus:bg-red-700 focus:shadow-sm focus:ring-4 focus:ring-red-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
+                className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 
+                hover:from-pink-500 hover:to-yellow-500 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
               >
                 <span className="inline-block">Login</span>
               </button>

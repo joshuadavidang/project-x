@@ -12,16 +12,16 @@ const LandingPage = () => {
 
           <div className="bg-gray-50">
             <div class="grid grid-rows-3 grid-flow-col justify-center flex items-center min-h-screen">
-              <div className="bg-red-200 text-xl px-24 py-4 rounded-full py-3 px-6">
-                <p className="text-center">English</p>
+              <div className="bg-gradient-to-r from-green-400 to-blue-500 bg-red-200 text-xl px-24 py-4 rounded-full py-3 px-6">
+                <p className="text-center text-white">English</p>
               </div>
 
-              <div className="bg-red-200 text-xl px-24 py-4 rounded-full py-3 px-6">
-                <p className="text-center">Math</p>
+              <div className="bg-gradient-to-r from-green-400 to-blue-500 bg-red-200 text-xl px-24 py-4 rounded-full py-3 px-6">
+                <p className="text-center text-white">Math</p>
               </div>
 
-              <div className="bg-red-200 text-xl px-24 py-4 rounded-full py-3 px-6">
-                <p className="text-center">Science</p>
+              <div className="bg-gradient-to-r from-green-400 to-blue-500 bg-red-200 text-xl px-24 py-4 rounded-full py-3 px-6">
+                <p className="text-center text-white">Science</p>
               </div>
             </div>
           </div>
