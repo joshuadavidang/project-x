@@ -48,53 +48,74 @@ const LandingPage = () => {
   };
 
   return (
-    <div className="grid grid-cols-2">
-      <div>
-        <nav className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 flex flex-col w-64 h-screen px-4 text-white ">
-          <div className="flex justify-center m-8">
-            <img
-              src={Joshua}
-              alt="profilePicture"
-              className=" w-20 h-20 rounded-full"
-            />
-          </div>
+    <>
+      <div class="">
+        <div class="flex flex-row flex-wrap">
+          <aside class="w-full sm:w-1/3 md:w-1/4">
+            <div>
+              <ul class="flex flex-col overflow-hidden">
+                <nav className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 flex flex-col w-full h-screen px-4 text-white ">
+                  <div className="flex justify-center m-8">
+                    <img
+                      src={Joshua}
+                      alt="profilePicture"
+                      className=" w-20 h-20 rounded-full"
+                    />
+                  </div>
 
-          <div className="text-center">
-            <span>{getEmail}</span>
-          </div>
+                  <div className="text-center">
+                    <span>{getEmail}</span>
+                  </div>
 
-          <div className="m-2 cursor-pointer">
-            <ul>
-              <li className="text-center py-3.5 hover:text-white hover:bg-black hover:font-bold rounded rounded-lg">
-                <span>English</span>
-              </li>
-            </ul>
+                  <div className="m-2 cursor-pointer">
+                    <ul>
+                      <li className="text-center py-3.5 hover:text-white hover:bg-black hover:font-bold rounded rounded-lg">
+                        <span>English</span>
+                      </li>
+                    </ul>
 
-            <ul>
-              <li className="text-center py-3.5 hover:text-white hover:bg-black hover:font-bold rounded rounded-lg">
-                <span>Math</span>
-              </li>
-            </ul>
+                    <ul>
+                      <li className="text-center py-3.5 hover:text-white hover:bg-black hover:font-bold rounded rounded-lg">
+                        <span>Math</span>
+                      </li>
+                    </ul>
 
-            <ul>
-              <li className="text-center py-3.5 hover:text-white hover:bg-black hover:font-bold rounded rounded-lg">
-                <span>Science</span>
-              </li>
-            </ul>
+                    <ul>
+                      <li className="text-center py-3.5 hover:text-white hover:bg-black hover:font-bold rounded rounded-lg">
+                        <span>Science</span>
+                      </li>
+                    </ul>
 
-            <ul onClick={signOutBtn}  className="rounded-full bg-red-700 text-white text-sm m-8 hover:bg-red-900 ">
-              <li className="text-center py-3">
-                <span>Log Out</span>
-              </li>
-            </ul>
-          </div>
-        </nav>
+                    <ul
+                      onClick={signOutBtn}
+                      className="rounded-full bg-red-700 text-white text-sm m-8 hover:bg-red-900 "
+                    >
+                      <li className="text-center py-3">
+                        <span>Log Out</span>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+              </ul>
+            </div>
+          </aside>
+
+          <main
+            role="main"
+            class="w-full sm:w-2/3 md:w-3/4 text-center bg-gray-200"
+          >
+            <span className="font-bold">Welcome</span>
+
+            <div class="grid grid-cols-3 gap-4">
+              <div>1</div>
+              <div>2</div>
+
+              <div>9</div>
+            </div>
+          </main>
+        </div>
       </div>
-
-      {/* <div className="bg-gray-200 ">
-        <p>Hello</p>
-      </div> */}
-    </div>
+    </>
   );
 };
 
