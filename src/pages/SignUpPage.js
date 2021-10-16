@@ -1,20 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 // eslint-disable-next-line
 import app from "../firebase";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
-// import { css } from "@emotion/react";
-// import PulseLoader from "react-spinners/ClipLoader";
 
-const LoginPage = () => {
+const SignUpPage = () => {
   const [email, setEmailState] = useState("");
   const [password, setPasswordState] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  let [loading, setLoading] = useState(true);
-  let [color, setColor] = useState("#ffffff");
 
   useEffect(() => {
     console.log(isAuthenticated);
@@ -22,9 +17,9 @@ const LoginPage = () => {
 
   let history = useHistory();
 
-  const loginBtn = () => {
+  const signUpBtn = () => {
     const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
@@ -43,7 +38,7 @@ const LoginPage = () => {
 
         Toast.fire({
           icon: "success",
-          title: "Signed in successfully",
+          title: "Signed up successfully",
         });
 
         history.push("/landingpage");
@@ -88,19 +83,12 @@ const LoginPage = () => {
                 className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
               />
               <button
-                onClick={loginBtn}
+                onClick={signUpBtn}
                 type="button"
                 className="transition duration-200 bg-red-500 hover:bg-red-600 focus:bg-red-700 focus:shadow-sm focus:ring-4 focus:ring-red-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
               >
-                <span className="inline-block">Login</span>
+                <span className="inline-block">Sign Up</span>
               </button>
-
-              <p className="text-center pt-7 text-gray-600">
-                Don't have an account? Register{" "}
-                <Link to="/signuppage">
-                  <span className="hover:text-green-400 font-bold underline">here</span>
-                </Link>
-              </p>
             </div>
           </div>
         </div>
@@ -109,4 +97,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default SignUpPage;

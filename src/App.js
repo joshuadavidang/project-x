@@ -1,19 +1,18 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import LoginPage from "./pages/LoginPage";
 import LandingPage from "./pages/LandingPage";
-import Container from "react-bootstrap/Container";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import SignUpPage from "./pages/SignUpPage";
 
 function App() {
   return (
-    <Container className="md:container md:mx-auto">
-      <Router>
-        <Switch>
-          <Route exact path="/" component={LoginPage} />
-          <Route path="/landingpage" component={LandingPage} />
-        </Switch>
-      </Router>
-    </Container>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={LoginPage} />
+        <Route path="/signuppage" component={SignUpPage} />
+        <Route path="/landingpage" component={LandingPage} />
+      </Switch>
+    </Router>
   );
 }
 
