@@ -30,7 +30,7 @@ const LandingPage = () => {
         </div>
 
         <div className="m-2 cursor-pointer">
-          <ul >
+          <ul>
             <li className="text-center py-3.5 hover:text-white hover:bg-black hover:font-bold rounded rounded-lg">
               <span>English</span>
             </li>
