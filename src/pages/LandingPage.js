@@ -10,7 +10,11 @@ const LandingPage = () => {
 
   useEffect(() => {
     const auth = getAuth();
-    console.log(auth.currentUser.email);
+    console.log(
+      auth.currentUser.email +
+        " email verified: " +
+        auth.currentUser.emailVerified
+    );
     setGetEmail(auth.currentUser.email);
   }, []);
 
@@ -21,8 +25,22 @@ const LandingPage = () => {
         // Sign-out successful.
         console.log("Sign-out successful");
 
-        Swal.fire("", "Logout successful", "success");
-        history.push("/");
+        Swal.fire({
+          title: "Logout?",
+          text: "You will be signed out",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Yes",
+          cancelButtonText: "No",
+          reverseButtons: true,
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire("", "Logout successful", "success");
+            history.push("/");
+          } else if (result.dismiss === Swal.DismissReason.cancel) {
+            Swal.fire("Welcome back", "", "success");
+          }
+        });
       })
       .catch((error) => {
         // An error happened.
@@ -61,7 +79,7 @@ const LandingPage = () => {
 
           <ul onClick={signOutBtn}>
             <li className="text-center py-3.5 hover:text-white hover:bg-black hover:font-bold rounded rounded-lg">
-              <span>Log Out!!!</span>
+              <span>Log Out</span>
             </li>
           </ul>
         </div>

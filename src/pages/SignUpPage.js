@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from "firebase/auth";
 // eslint-disable-next-line
 import app from "../firebase";
 import { useHistory } from "react-router-dom";
@@ -21,27 +25,13 @@ const SignUpPage = () => {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
-
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 1000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.addEventListener("mouseenter", Swal.stopTimer);
-            toast.addEventListener("mouseleave", Swal.resumeTimer);
-          },
+        sendEmailVerification(auth.currentUser).then(() => {
+          Swal.fire({
+            text: "Click on the link in your email to verify your account.",
+            icon: "info",
+            confirmButtonText: "OK",
+          });
         });
-
-        Toast.fire({
-          icon: "success",
-          title: "Signed up successfully",
-        });
-
-        history.push("/landingpage");
       })
       .catch((error) => {
         const errorMessage = error.message;
