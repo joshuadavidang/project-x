@@ -9,7 +9,6 @@ const LandingPage = () => {
   let history = useHistory();
 
   useEffect(() => {
-    console.log(history);
     const auth = getAuth();
     console.log(auth.currentUser.email);
     setGetEmail(auth.currentUser.email);
@@ -38,7 +37,7 @@ const LandingPage = () => {
         </div>
 
         <div className="text-center">
-          <span >{getEmail}</span>
+          <span>{getEmail}</span>
         </div>
 
         <div className="m-2 cursor-pointer">
@@ -62,7 +61,7 @@ const LandingPage = () => {
 
           <ul onClick={signOutBtn}>
             <li className="text-center py-3.5 hover:text-white hover:bg-black hover:font-bold rounded rounded-lg">
-              <span>Log Out</span>
+              <span>Log Out!!!</span>
             </li>
           </ul>
         </div>

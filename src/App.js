@@ -6,7 +6,7 @@ import SignUpPage from "./pages/SignUpPage";
 
 function App() {
   return (
-    <Router>
+    <Router basename='/project-x'>
       <Switch>
         <Route exact path="/" component={LoginPage} />
         <Route path="/signup" component={SignUpPage} />
