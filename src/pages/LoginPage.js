@@ -29,22 +29,7 @@ const LoginPage = () => {
         const user = userCredential.user;
         console.log(user);
 
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 1000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.addEventListener("mouseenter", Swal.stopTimer);
-            toast.addEventListener("mouseleave", Swal.resumeTimer);
-          },
-        });
-
-        Toast.fire({
-          icon: "success",
-          title: "Signed in successfully",
-        });
+        Swal.fire("", "Signed in successful", "success");
 
         history.push("/landingpage");
       })
@@ -98,7 +83,7 @@ const LoginPage = () => {
 
               <p className="text-center pt-7 text-gray-600">
                 Don't have an account? Register{" "}
-                <Link to="/signuppage">
+                <Link to="/signup">
                   <span className="hover:text-green-400 font-bold">here</span>
                 </Link>
               </p>
