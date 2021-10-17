@@ -78,7 +78,7 @@ const LoginPage = () => {
                 </label>
 
                 <label className=" text-sm text-green-600">
-                  <Link to="/forgetpassword"> Forget Password?</Link>
+                  <Link to="/forgetpassword"> Forgot Password?</Link>
                 </label>
               </div>
 
