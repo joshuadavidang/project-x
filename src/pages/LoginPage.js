@@ -71,9 +71,16 @@ const LoginPage = () => {
                 value={email}
                 onChange={(e) => setEmailState(e.target.value)}
               />
-              <label className="font-semibold text-sm text-gray-600 pb-1 block">
-                Password
-              </label>
+
+              <div className="flex flex-row space-x-44">
+                <label className="font-semibold text-sm text-gray-600 pb-1 block">
+                  Password
+                </label>
+
+                <label className=" text-sm text-green-600">
+                  <Link to="/forgetpassword"> Forget Password?</Link>
+                </label>
+              </div>
 
               <input
                 type="password"
