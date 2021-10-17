@@ -72,14 +72,28 @@ const LoginPage = () => {
                 onChange={(e) => setEmailState(e.target.value)}
               />
 
-              <div className="flex flex-row space-x-44">
+              {/* <div className="flex flex-row space-x-44">
                 <label className="font-semibold text-sm text-gray-600 pb-1 block">
                   Password
                 </label>
 
-                <label className=" text-sm text-green-600">
+                <label className="text-sm text-green-600">
                   <Link to="/forgetpassword"> Forgot Password?</Link>
                 </label>
+              </div> */}
+
+              <div class="md:grid grid-cols-2 gap-x-32">
+                <div>
+                  <label className="font-semibold text-sm text-gray-600 pb-1 block">
+                    Password
+                  </label>
+                </div>
+
+                <div>
+                  <label className="text-sm text-green-600">
+                    <Link to="/forgetpassword"> Forgot Password?</Link>
+                  </label>
+                </div>
               </div>
 
               <input
