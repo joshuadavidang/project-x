@@ -5,6 +5,7 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import app from "../firebase";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
+import Login from "../assets/images/login.svg";
 // import { css } from "@emotion/react";
 // import PulseLoader from "react-spinners/ClipLoader";
 
@@ -57,6 +58,9 @@ const LoginPage = () => {
           {/* <h1 className="font-bold text-center text-2xl mb-5">Project X</h1> */}
           <div className="shadow bg-white w-full rounded-lg divide-y divide-gray-200">
             <div className="px-10 py-10">
+              <div className='flex justify-center'>
+                <img src={Login} alt="login" className="mb-7 w-3/5" />
+              </div>
               <label className="font-semibold text-sm text-gray-600 pb-1 block">
                 Email
               </label>
