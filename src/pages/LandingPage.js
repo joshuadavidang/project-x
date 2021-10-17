@@ -8,16 +8,16 @@ const LandingPage = () => {
   const [getEmail, setGetEmail] = useState("");
   let history = useHistory();
 
-  // useEffect(() => {
-  //   const auth = getAuth();
-  //   console.log(auth);
-  //   console.log(
-  //     auth.currentUser.email +
-  //       " email verified: " +
-  //       auth.currentUser.emailVerified
-  //   );
-  //   setGetEmail(auth.currentUser.email);
-  // }, []);
+  useEffect(() => {
+    const auth = getAuth();
+    console.log(auth);
+    console.log(
+      auth.currentUser.email +
+        " email verified: " +
+        auth.currentUser.emailVerified
+    );
+    setGetEmail(auth.currentUser.email);
+  }, []);
 
   const signOutBtn = () => {
     const auth = getAuth();
