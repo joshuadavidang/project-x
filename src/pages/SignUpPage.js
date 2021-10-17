@@ -46,7 +46,7 @@ const SignUpPage = () => {
 
   return (
     <div>
-      <div className="min-h-screen w-screen bg-gray-200 flex flex-col justify-center ">
+      <div className="min-h-screen w-screen bg-gray-200 sm: px-6 flex flex-col justify-center ">
         <div className="p-1 xs:p-0 mx-auto md:w-full md:max-w-md">
           {/* <h1 className="font-bold text-center text-2xl mb-5">Project X</h1> */}
           <div className="bg-white shadow w-full rounded-lg divide-y divide-gray-200">
