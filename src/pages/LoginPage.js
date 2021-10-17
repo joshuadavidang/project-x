@@ -53,7 +53,7 @@ const LoginPage = () => {
 
   return (
     <div>
-      <div className="min-h-screen w-screen bg-gray-200 sm: px-6 flex flex-col justify-center overflow-y-hidden">
+      <div className="min-h-screen w-screen bg-gray-200 sm: px-6 overscroll-none flex flex-col justify-center">
         <div className="p-1 xs:p-0 mx-auto md:w-full md:max-w-md">
           {/* <h1 className="font-bold text-center text-2xl mb-5">Project X</h1> */}
           <div className="shadow bg-white w-full rounded-lg divide-y divide-gray-200">
