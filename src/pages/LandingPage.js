@@ -52,7 +52,7 @@ const LandingPage = () => {
     <>
       <div class="">
         <div class="flex flex-row flex-wrap">
-          <aside class="w-full md:w-1/4 xl:w-1/6">
+          <aside class="w-full sm:w-1/4 md:w-2/6 xl:w-1/6">
             <div>
               <ul class="flex flex-col overflow-hidden">
                 <nav className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 flex flex-col h-screen px-4 text-white ">
@@ -103,7 +103,7 @@ const LandingPage = () => {
 
           <main
             role="main"
-            class="w-full sm:w-2/3 md:w-3/4 xl:w-5/6 text-center bg-gray-200"
+            class="w-full sm:w-3/4 md:w-4/6 xl:w-5/6 text-center bg-gray-200"
           >
             <span className="font-bold">Welcome</span>
 
