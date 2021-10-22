@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 import ForgetPasswordImage from "../assets/images/forgetpassword.svg";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ForgetPassword = () => {
   const [email, setEmailState] = useState("");
@@ -15,7 +16,7 @@ const ForgetPassword = () => {
       .then(() => {
         // Password reset email sent!
         Swal.fire("", "Check your email for further instructions", "success");
-        history.push('/')
+        history.push("/");
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -28,6 +29,24 @@ const ForgetPassword = () => {
         <div className="p-1 xs:p-0 mx-auto md:w-full md:max-w-md">
           <div className="shadow bg-white w-full rounded-lg divide-y divide-gray-200">
             <div className="px-10 py-10">
+              <Link to="/">
+                {" "}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                  />
+                </svg>
+              </Link>
+
               <div className="flex justify-center">
                 <img
                   src={ForgetPasswordImage}
@@ -36,8 +55,8 @@ const ForgetPassword = () => {
                 />
               </div>
 
-              <h1 className="text-center text-sm mb-3">
-                Enter your email below to reset your password.
+              <h1 className="font-semibold text-center text-lg mb-5">
+                Enter your email to reset your password
               </h1>
 
               <label className="font-semibold text-sm text-gray-600 pb-1 block">

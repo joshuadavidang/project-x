@@ -55,12 +55,16 @@ const LoginPage = () => {
     <div>
       <div className=" min-h-screen w-screen bg-gray-200 sm: px-6 flex flex-col justify-center">
         <div className="p-1 xs:p-0 mx-auto md:w-full md:max-w-md">
-          {/* <h1 className="font-bold text-center text-2xl mb-5">Project X</h1> */}
           <div className="shadow bg-white w-full rounded-lg divide-y divide-gray-200">
             <div className="px-10 py-10">
               <div className="flex justify-center">
                 <img src={Login} alt="login" className="mb-7 w-3/5" />
               </div>
+
+              <h1 className="font-semibold text-center text-lg mb-5">
+                Login to your account
+              </h1>
+
               <label className="font-semibold text-sm text-gray-600 pb-1 block">
                 Email
               </label>

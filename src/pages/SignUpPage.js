@@ -51,9 +51,31 @@ const SignUpPage = () => {
           {/* <h1 className="font-bold text-center text-2xl mb-5">Project X</h1> */}
           <div className="bg-white shadow w-full rounded-lg divide-y divide-gray-200">
             <div className="px-10 py-10">
+              <Link to="/">
+                {" "}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                  />
+                </svg>
+              </Link>
+
               <div className="flex justify-center">
                 <img src={SignUp} alt="sign up" className="mb-7 w-3/5" />
               </div>
+
+              <h1 className="font-semibold text-center text-lg mb-5">
+                Sign up for an account
+              </h1>
 
               <label className="font-semibold text-sm text-gray-600 pb-1 block">
                 Email
