@@ -81,10 +81,10 @@ const SignUpPage = () => {
               </Link>
 
               <div className="flex justify-center">
-                <img src={SignUp} alt="sign up" className="mb-7 w-3/5" />
+                <img src={SignUp} alt="sign up" className="mb-3 w-3/5" />
               </div>
 
-              <h1 className="font-semibold text-center text-lg mb-5">
+              <h1 className="font-semibold text-center text-lg mb-3">
                 Sign up for an account
               </h1>
 

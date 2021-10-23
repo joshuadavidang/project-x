@@ -73,7 +73,7 @@ const LoginPage = () => {
                 <img src={Login} alt="login" className="mb-7 w-3/5" />
               </div>
 
-              <h1 className="font-semibold text-center text-lg mb-5">
+              <h1 className="font-semibold text-center text-lg mb-3">
                 Login to your account
               </h1>
 
