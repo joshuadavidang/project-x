@@ -3,6 +3,7 @@ import Joshua from "../assets/images/joshua.jpeg";
 import { getAuth, signOut } from "firebase/auth";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
+import Avatar from "react-avatar";
 
 const LandingPage = () => {
   const [getEmail, setGetEmail] = useState("");
@@ -10,12 +11,12 @@ const LandingPage = () => {
 
   useEffect(() => {
     const auth = getAuth();
-    console.log(auth);
-    console.log(
-      auth.currentUser.email +
-        " email verified: " +
-        auth.currentUser.emailVerified
-    );
+    // console.log(auth);
+    // console.log(
+    //   auth.currentUser.email +
+    //     " email verified: " +
+    //     auth.currentUser.emailVerified
+    // );
     setGetEmail(auth.currentUser.email);
   }, []);
 
@@ -57,11 +58,13 @@ const LandingPage = () => {
               <ul className="flex flex-col overflow-hidden">
                 <nav className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 flex flex-col h-screen px-4 text-white ">
                   <div className="flex justify-center m-8">
-                    <img
+                    {/* <img
                       src={Joshua}
                       alt="profilePicture"
                       className=" w-20 h-20 rounded-full"
-                    />
+                    /> */}
+
+                    <Avatar name={getEmail} size="100" round={true} />
                   </div>
 
                   <div className="text-center">

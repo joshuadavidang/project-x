@@ -7,7 +7,7 @@ import {
 } from "firebase/auth";
 // eslint-disable-next-line
 import app from "../firebase";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import Swal from "sweetalert2";
 import SignUp from "../assets/images/signup.svg";
@@ -20,6 +20,8 @@ const SignUpPage = () => {
   //   console.log(isAuthenticated);
   // }, []);
 
+  let history = useHistory();
+
   const signUpBtn = () => {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
@@ -31,6 +33,7 @@ const SignUpPage = () => {
             confirmButtonText: "OK",
           });
         });
+        history.push("/");
       })
       .catch((error) => {
         const errorMessage = error.message;
