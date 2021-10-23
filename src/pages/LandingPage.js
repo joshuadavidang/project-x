@@ -53,10 +53,10 @@ const LandingPage = () => {
     <>
       <div className="">
         <div className="flex flex-row flex-wrap">
-          <aside className="w-full sm:w-1/4 md:w-2/6 xl:w-1/6">
+          <aside className="w-full sm:w-1/4 md:w-2/6 xl:w-1/6 bg-gray-200">
             <div>
               <ul className="flex flex-col overflow-hidden">
-                <nav className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 flex flex-col h-screen px-4 text-white ">
+                <nav className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 flex flex-col h-screen px-4 text-white rounded-r-3xl">
                   <div className="flex justify-center m-8">
                     {/* <img
                       src={Joshua}
@@ -108,13 +108,15 @@ const LandingPage = () => {
             role="main"
             className="w-full sm:w-3/4 md:w-4/6 xl:w-5/6 text-center bg-gray-200"
           >
-            <span className="font-bold">Welcome</span>
+            <div className="mt-3">
+              <span className="font-bold">English</span>
+            </div>
 
-            <div className="grid grid-cols-3 gap-4">
-              <div>1</div>
-              <div>2</div>
+            <div className="grid grid-cols-3 gap-4 mx-10 my-14">
+              <div className="shadow bg-white rounded-lg ml-4">a</div>
+              <div className="shadow bg-white w-full rounded-lg  ml-4">b</div>
 
-              <div>9</div>
+              <div className="shadow bg-white w-full rounded-lg ml-4">c</div>
             </div>
           </main>
         </div>
