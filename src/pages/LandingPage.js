@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Joshua from "../assets/images/joshua.jpeg";
+// import Joshua from "../assets/images/joshua.jpeg";
 import { getAuth, signOut } from "firebase/auth";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";

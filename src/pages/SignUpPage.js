@@ -27,13 +27,15 @@ const SignUpPage = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
         sendEmailVerification(auth.currentUser).then(() => {
-          Swal.fire({
-            text: "Click on the link in your email to verify your account.",
-            icon: "info",
-            confirmButtonText: "OK",
-          });
+          Swal.fire(
+            {
+              text: "Click on the link in your email to verify your account.",
+              icon: "info",
+              confirmButtonText: "OK",
+            },
+            history.push("/")
+          );
         });
-        history.push("/");
       })
       .catch((error) => {
         const errorMessage = error.message;

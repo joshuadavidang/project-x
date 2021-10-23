@@ -8,8 +8,8 @@ import Swal from "sweetalert2";
 import Login from "../assets/images/login.svg";
 
 // Redux
-import { useSelector, useDispatch } from "react-redux"; // to access state data
-import { LOGIN_ACTION } from "../redux/reducers/user";
+import { useSelector } from "react-redux"; // to access state data, to dispatch data
+// import { LOGIN_ACTION } from "../redux/reducers/user";
 
 const LoginPage = () => {
   const [email, setEmailState] = useState("");
@@ -17,7 +17,7 @@ const LoginPage = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const user = useSelector((state) => state.user.value);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   useEffect(() => {
     console.log(isAuthenticated);
