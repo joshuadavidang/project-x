@@ -86,7 +86,7 @@ const LoginPage = () => {
                 </label>
               </div> */}
 
-              <div class="md:grid grid-cols-2 gap-x-32">
+              <div className="md:grid grid-cols-2 gap-x-32">
                 <div>
                   <label className="font-semibold text-sm text-gray-600 pb-1 block">
                     Password
