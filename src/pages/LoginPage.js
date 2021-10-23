@@ -6,17 +6,23 @@ import app from "../firebase";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
 import Login from "../assets/images/login.svg";
-// import { css } from "@emotion/react";
-// import PulseLoader from "react-spinners/ClipLoader";
+
+// Redux
+import { useSelector, useDispatch } from "react-redux"; // to access state data
+import { LOGIN_ACTION } from "../redux/reducers/user";
 
 const LoginPage = () => {
   const [email, setEmailState] = useState("");
   const [password, setPasswordState] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
+  const user = useSelector((state) => state.user.value);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     console.log(isAuthenticated);
-  }, [isAuthenticated]);
+    console.log(user);
+  }, [isAuthenticated, user]);
 
   let history = useHistory();
 
@@ -116,6 +122,23 @@ const LoginPage = () => {
               >
                 <span className="inline-block">Login</span>
               </button>
+
+              {/* <button
+                onClick={() => {
+                  dispatch(
+                    LOGIN_ACTION({
+                      name: "Pedro",
+                      age: 20,
+                      email: "pedro@gmail.com",
+                    })
+                  );
+                }}
+                type="button"
+                className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 
+                hover:from-pink-500 hover:to-yellow-500 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
+              >
+                <span className="inline-block">Login</span>
+              </button> */}
 
               <p className="text-center pt-7 text-gray-600">
                 Don't have an account? Register{" "}

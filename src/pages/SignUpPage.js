@@ -8,13 +8,13 @@ import {
 // eslint-disable-next-line
 import app from "../firebase";
 // import { useHistory } from "react-router-dom";
+
 import Swal from "sweetalert2";
 import SignUp from "../assets/images/signup.svg";
 
 const SignUpPage = () => {
   const [email, setEmailState] = useState("");
   const [password, setPasswordState] = useState("");
-  // const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   // useEffect(() => {
   //   console.log(isAuthenticated);
@@ -102,7 +102,7 @@ const SignUpPage = () => {
               <button
                 onClick={signUpBtn}
                 type="button"
-                className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 
+                className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500
                 hover:from-pink-500 hover:to-yellow-500 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
               >
                 <span className="inline-block">Sign Up</span>
