@@ -11,12 +11,12 @@ const LandingPage = () => {
 
   useEffect(() => {
     const auth = getAuth();
-    // console.log(auth);
-    // console.log(
-    //   auth.currentUser.email +
-    //     " email verified: " +
-    //     auth.currentUser.emailVerified
-    // );
+    console.log(auth);
+    console.log(
+      auth.currentUser.email +
+        " email verified: " +
+        auth.currentUser.emailVerified
+    );
     setGetEmail(auth.currentUser.email);
   }, []);
 
