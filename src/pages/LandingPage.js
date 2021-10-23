@@ -1,5 +1,4 @@
 import React from "react";
-// import Joshua from "../assets/images/joshua.jpeg";
 import { getAuth, signOut } from "firebase/auth";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -57,12 +56,6 @@ const LandingPage = () => {
               <ul className="flex flex-col overflow-hidden">
                 <nav className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 flex flex-col h-screen px-4 text-white rounded-r-3xl">
                   <div className="flex justify-center m-8">
-                    {/* <img
-                      src={Joshua}
-                      alt="profilePicture"
-                      className=" w-20 h-20 rounded-full"
-                    /> */}
-
                     <Avatar name={getData.email} size="100" round={true} />
                   </div>
 
@@ -114,7 +107,6 @@ const LandingPage = () => {
             <div className="grid grid-cols-3 gap-4 mx-10 my-14">
               <div className="shadow bg-white rounded-lg ml-4">a</div>
               <div className="shadow bg-white w-full rounded-lg  ml-4">b</div>
-
               <div className="shadow bg-white w-full rounded-lg ml-4">c</div>
             </div>
           </main>

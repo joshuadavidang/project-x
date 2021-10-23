@@ -9,7 +9,7 @@ import Login from "../assets/images/login.svg";
 import BeatLoader from "react-spinners/BeatLoader";
 
 // Redux
-import { useSelector, useDispatch } from "react-redux"; // to access state data, to dispatch data
+import { useSelector, useDispatch } from "react-redux"; // useSelect - access data from store |||| useDispatch - to send data to store
 import { LOGIN_ACTION } from "../redux/reducers/authentication";
 
 const LoginPage = () => {
@@ -17,16 +17,14 @@ const LoginPage = () => {
   const [password, setPasswordState] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loadingAnimation, setLoadingAnimation] = useState(false);
-
-  const user = useSelector((state) => state.authenticationReducer.value);
+  const history = useHistory();
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.authenticationReducer.value);
 
   useEffect(() => {
     console.log("isAuthenticated: " + isAuthenticated);
     console.log(user);
   }, [isAuthenticated, user]);
-
-  let history = useHistory();
 
   const loginBtn = () => {
     setLoadingAnimation(true);
@@ -89,16 +87,6 @@ const LoginPage = () => {
                 onChange={(e) => setEmailState(e.target.value)}
               />
 
-              {/* <div className="flex flex-row space-x-44">
-                <label className="font-semibold text-sm text-gray-600 pb-1 block">
-                  Password
-                </label>
-
-                <label className="text-sm text-green-600">
-                  <Link to="/forgetpassword"> Forgot Password?</Link>
-                </label>
-              </div> */}
-
               <div className="md:grid grid-cols-2 gap-x-32">
                 <div>
                   <label className="font-semibold text-sm text-gray-600 pb-1 block">
@@ -133,23 +121,6 @@ const LoginPage = () => {
                   <span className="inline-block">Login</span>
                 )}
               </button>
-
-              {/* <button
-                onClick={() => {
-                  dispatch(
-                    LOGIN_ACTION({
-                      name: "Pedro",
-                      age: 20,
-                      email: "pedro@gmail.com",
-                    })
-                  );
-                }}
-                type="button"
-                className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 
-                hover:from-pink-500 hover:to-yellow-500 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
-              >
-                <span className="inline-block">Login</span>
-              </button> */}
 
               <p className="text-center pt-7 text-gray-600">
                 Don't have an account? Register{" "}

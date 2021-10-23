@@ -9,8 +9,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 const ForgetPassword = () => {
   const [email, setEmailState] = useState("");
   const [loadingAnimation, setLoadingAnimation] = useState(false);
-
-  let history = useHistory();
+  const history = useHistory();
 
   const resetPassword = () => {
     setLoadingAnimation(true);
@@ -29,6 +28,7 @@ const ForgetPassword = () => {
         }, setLoadingAnimation(false));
     }, 600);
   };
+
   return (
     <div>
       <div className=" min-h-screen w-screen bg-gray-200 sm: px-6 flex flex-col justify-center">

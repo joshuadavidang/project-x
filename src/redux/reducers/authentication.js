@@ -6,7 +6,7 @@ export const authenticationSlice = createSlice({
   // functions to alter values
   reducers: {
     LOGIN_ACTION: (state, action) => {
-      // do something with state, to change the value after login in
+      // new state, value changed after logging in
       state.value = action.payload;
     },
     LOGOUT_ACTION: (state, action) => {
