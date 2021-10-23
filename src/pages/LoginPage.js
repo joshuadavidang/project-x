@@ -9,8 +9,8 @@ import Login from "../assets/images/login.svg";
 import BeatLoader from "react-spinners/BeatLoader";
 
 // Redux
-import { useSelector } from "react-redux"; // to access state data, to dispatch data
-// import { LOGIN_ACTION } from "../redux/reducers/user";
+import { useSelector, useDispatch } from "react-redux"; // to access state data, to dispatch data
+import { LOGIN_ACTION } from "../redux/reducers/authentication";
 
 const LoginPage = () => {
   const [email, setEmailState] = useState("");
@@ -18,11 +18,11 @@ const LoginPage = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loadingAnimation, setLoadingAnimation] = useState(false);
 
-  const user = useSelector((state) => state.user.value);
-  // const dispatch = useDispatch();
+  const user = useSelector((state) => state.authenticationReducer.value);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(isAuthenticated);
+    console.log("isAuthenticated: " + isAuthenticated);
     console.log(user);
   }, [isAuthenticated, user]);
 
@@ -36,7 +36,8 @@ const LoginPage = () => {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
+          // console.log(user.email);
+          dispatch(LOGIN_ACTION({ email: user.email, isAuthenticated: true }));
 
           if (user.emailVerified === true) {
             setIsAuthenticated(true);

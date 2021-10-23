@@ -1,32 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 // import Joshua from "../assets/images/joshua.jpeg";
 import { getAuth, signOut } from "firebase/auth";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
 import Avatar from "react-avatar";
 
-const LandingPage = () => {
-  const [getEmail, setGetEmail] = useState("");
-  let history = useHistory();
+import { useSelector, useDispatch } from "react-redux"; // to access state data, to dispatch data
+import { LOGOUT_ACTION } from "../redux/reducers/authentication";
 
-  useEffect(() => {
-    const auth = getAuth();
-    console.log(auth);
-    console.log(
-      auth.currentUser.email +
-        " email verified: " +
-        auth.currentUser.emailVerified
-    );
-    setGetEmail(auth.currentUser.email);
-  }, []);
+const LandingPage = () => {
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const getData = useSelector((state) => state.authenticationReducer.value);
+  // console.log(getData.email);
 
   const signOutBtn = () => {
     const auth = getAuth();
     signOut(auth)
       .then(() => {
-        // Sign-out successful.
-        console.log("Sign-out successful");
-
         Swal.fire({
           title: "Logout?",
           text: "You will be signed out",
@@ -38,6 +29,14 @@ const LandingPage = () => {
         }).then((result) => {
           if (result.isConfirmed) {
             Swal.fire("", "Logout successful", "success");
+            // Sign-out successful.
+            dispatch(
+              LOGOUT_ACTION({
+                email: getData.email,
+                isAuthenticated: false,
+                message: "User signed out",
+              })
+            );
             history.push("/");
           } else if (result.dismiss === Swal.DismissReason.cancel) {
             Swal.fire("Welcome back", "", "success");
@@ -64,11 +63,11 @@ const LandingPage = () => {
                       className=" w-20 h-20 rounded-full"
                     /> */}
 
-                    <Avatar name={getEmail} size="100" round={true} />
+                    <Avatar name={getData.email} size="100" round={true} />
                   </div>
 
                   <div className="text-center">
-                    <span>{getEmail}</span>
+                    <span>{getData.email}</span>
                   </div>
 
                   <div className="m-2 cursor-pointer">
