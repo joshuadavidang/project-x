@@ -6,6 +6,7 @@ import app from "../firebase";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
 import Login from "../assets/images/login.svg";
+import BeatLoader from "react-spinners/BeatLoader";
 
 // Redux
 import { useSelector } from "react-redux"; // to access state data, to dispatch data
@@ -15,6 +16,7 @@ const LoginPage = () => {
   const [email, setEmailState] = useState("");
   const [password, setPasswordState] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loadingAnimation, setLoadingAnimation] = useState(false);
 
   const user = useSelector((state) => state.user.value);
   // const dispatch = useDispatch();
@@ -27,34 +29,38 @@ const LoginPage = () => {
   let history = useHistory();
 
   const loginBtn = () => {
-    const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
+    setLoadingAnimation(true);
 
-        if (user.emailVerified === true) {
-          setIsAuthenticated(true);
-          Swal.fire("", "Signed in successful", "success");
-          history.push("/landingpage");
-        } else {
+    setTimeout(() => {
+      const auth = getAuth();
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+
+          if (user.emailVerified === true) {
+            setIsAuthenticated(true);
+            Swal.fire("", "Signed in successful", "success");
+            history.push("/landingpage");
+          } else {
+            Swal.fire({
+              text: "Please verify your email before attempting to login",
+              icon: "warning",
+              confirmButtonText: "OK",
+            });
+          }
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          console.log(errorMessage);
           Swal.fire({
-            text: "Please verify your email before attempting to login",
-            icon: "warning",
+            title: errorMessage,
+            text: "Please try again",
+            icon: "error",
             confirmButtonText: "OK",
           });
-        }
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        console.log(errorMessage);
-        Swal.fire({
-          title: errorMessage,
-          text: "Please try again",
-          icon: "error",
-          confirmButtonText: "OK",
-        });
-      });
+        }, setLoadingAnimation(false));
+    }, 600);
   };
 
   return (
@@ -120,7 +126,11 @@ const LoginPage = () => {
                 className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 
                 hover:from-pink-500 hover:to-yellow-500 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
               >
-                <span className="inline-block">Login</span>
+                {loadingAnimation === true ? (
+                  <BeatLoader size={7} />
+                ) : (
+                  <span className="inline-block">Login</span>
+                )}
               </button>
 
               {/* <button

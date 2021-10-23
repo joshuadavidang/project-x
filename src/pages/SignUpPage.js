@@ -11,10 +11,12 @@ import { useHistory } from "react-router-dom";
 
 import Swal from "sweetalert2";
 import SignUp from "../assets/images/signup.svg";
+import BeatLoader from "react-spinners/BeatLoader";
 
 const SignUpPage = () => {
   const [email, setEmailState] = useState("");
   const [password, setPasswordState] = useState("");
+  const [loadingAnimation, setLoadingAnimation] = useState(false);
 
   // useEffect(() => {
   //   console.log(isAuthenticated);
@@ -23,30 +25,34 @@ const SignUpPage = () => {
   let history = useHistory();
 
   const signUpBtn = () => {
-    const auth = getAuth();
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        sendEmailVerification(auth.currentUser).then(() => {
-          Swal.fire(
-            {
-              text: "Click on the link in your email to verify your account.",
-              icon: "info",
-              confirmButtonText: "OK",
-            },
-            history.push("/")
-          );
-        });
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        console.log(errorMessage);
-        Swal.fire({
-          title: errorMessage,
-          text: "Please try again",
-          icon: "error",
-          confirmButtonText: "OK",
-        });
-      });
+    setLoadingAnimation(true);
+
+    setTimeout(() => {
+      const auth = getAuth();
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          sendEmailVerification(auth.currentUser).then(() => {
+            Swal.fire(
+              {
+                text: "Click on the link in your email to verify your account.",
+                icon: "info",
+                confirmButtonText: "OK",
+              },
+              history.push("/")
+            );
+          });
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          console.log(errorMessage);
+          Swal.fire({
+            title: errorMessage,
+            text: "Please try again",
+            icon: "error",
+            confirmButtonText: "OK",
+          });
+        }, setLoadingAnimation(false));
+    }, 600);
   };
 
   return (
@@ -110,7 +116,11 @@ const SignUpPage = () => {
                 className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500
                 hover:from-pink-500 hover:to-yellow-500 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
               >
-                <span className="inline-block">Sign Up</span>
+                {loadingAnimation === true ? (
+                  <BeatLoader size={7} />
+                ) : (
+                  <span className="inline-block">Register</span>
+                )}
               </button>
 
               <p className="text-center pt-7 text-gray-600">

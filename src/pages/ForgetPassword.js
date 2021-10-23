@@ -4,24 +4,30 @@ import ForgetPasswordImage from "../assets/images/forgetpassword.svg";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+import BeatLoader from "react-spinners/BeatLoader";
 
 const ForgetPassword = () => {
   const [email, setEmailState] = useState("");
+  const [loadingAnimation, setLoadingAnimation] = useState(false);
 
   let history = useHistory();
 
   const resetPassword = () => {
-    const auth = getAuth();
-    sendPasswordResetEmail(auth, email)
-      .then(() => {
-        // Password reset email sent!
-        Swal.fire("", "Check your email for further instructions", "success");
-        history.push("/");
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        Swal.fire("", errorMessage, "error");
-      });
+    setLoadingAnimation(true);
+
+    setTimeout(() => {
+      const auth = getAuth();
+      sendPasswordResetEmail(auth, email)
+        .then(() => {
+          // Password reset email sent!
+          Swal.fire("", "Check your email for further instructions", "success");
+          history.push("/");
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          Swal.fire("", errorMessage, "error");
+        }, setLoadingAnimation(false));
+    }, 600);
   };
   return (
     <div>
@@ -76,7 +82,11 @@ const ForgetPassword = () => {
                 className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 
                   hover:from-pink-500 hover:to-yellow-500 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
               >
-                <span className="inline-block">Reset Password</span>
+                {loadingAnimation === true ? (
+                  <BeatLoader size={7} />
+                ) : (
+                  <span className="inline-block">Reset Password</span>
+                )}
               </button>
             </div>
           </div>
