@@ -80,8 +80,7 @@ const NavBar = ({ emailData }) => {
               type="button"
               className="bg-gradient-to-r from-blue-600 to-blue-500 
                 hover:from-red-500 hover:to-yellow-500 text-white w-full rounded-lg 
-                text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block mt-12
-               "
+                text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block mt-12"
             >
               <li className="text-center py-3 ">
                 <span>Log Out</span>

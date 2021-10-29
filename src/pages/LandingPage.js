@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux"; // to access state data, to dispatch data
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import MainContent from "../components/MainContent";
 import NavBar from "../components/NavBar";
 
 const LandingPage = () => {
-  const history = useHistory();
+  // const history = useHistory();
   const getData = useSelector((state) => state.authenticationReducer.value);
   console.log(getData);
 
@@ -13,7 +13,7 @@ const LandingPage = () => {
     if (getData.isAuthenticated == false) {
       /* eslint eqeqeq: 0 */
       // console.log("User not login");
-      history.push("/");
+      //history.push("/");
     }
   });
 

@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
+import EnglishContent from "./EnglishContent";
 
 const MainContent = () => {
+  useEffect(() => {
+    console.log(EnglishContent);
+  });
   return (
     <div>
-      <div className="mt-3">
-        <span className="font-bold">English</span>
+      <div className="mt-5">
+        <span className="text-2xl font-bold">English</span>
       </div>
 
       <div className="grid grid-cols-3 gap-4 mx-10 my-14">
