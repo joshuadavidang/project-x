@@ -26,7 +26,7 @@ const LandingPage = () => {
 
         <main
           role="main"
-          className="w-full sm:w-3/4 md:w-4/6 xl:w-5/6 text-center bg-gray-200"
+          className="w-full sm:w-3/4 md:w-4/6 xl:w-5/6 text-center bg-white"
         >
           <MainContent />
         </main>
