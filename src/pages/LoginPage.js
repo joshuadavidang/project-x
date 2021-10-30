@@ -35,7 +35,13 @@ const LoginPage = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           // console.log(user.email);
-          dispatch(LOGIN_ACTION({ email: user.email, isAuthenticated: true }));
+          dispatch(
+            LOGIN_ACTION({
+              email: user.email,
+              isAuthenticated: true,
+              uid: user.uid,
+            })
+          );
 
           if (user.emailVerified === true) {
             setIsAuthenticated(true);
