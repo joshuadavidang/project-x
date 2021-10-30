@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux"; // to access state data, to dispatch data
+import AccountsPage from "../pages/AccountsPage";
 import EnglishPage from "../pages/EnglishPage";
 import MathPage from "../pages/MathPage";
 import Welcome from "./Welcome";
@@ -14,6 +15,8 @@ const MainContent = () => {
         <EnglishPage />
       ) : getData.subject === "Math" && getData.isLoaded === true ? (
         <MathPage />
+      ) : getData.subject === "Account" && getData.isLoaded === true ? (
+        <AccountsPage />
       ) : getData.isLoaded === false ? (
         <Welcome />
       ) : (
