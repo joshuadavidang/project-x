@@ -91,25 +91,74 @@ const SignUpPage = () => {
               <label className="font-semibold text-sm text-gray-600 pb-1 block">
                 Email
               </label>
-              <input
+              {/* <input
                 className="border rounded-lg px-3 py-2 mt-1 mb-4 text-sm w-full"
                 type="email"
                 name="email"
                 value={email}
                 onChange={(e) => setEmailState(e.target.value)}
-              />
+              /> */}
+
+              <div className="flex bg-gray-100 p-3 space-x-4 mb-7 mt-0.5 rounded-lg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  color="gray"
+                >
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                </svg>
+
+                <input
+                  className="bg-gray-100 outline-none text-sm w-full"
+                  type="email"
+                  name="email"
+                  value={email}
+                  placeholder="New email"
+                  onChange={(e) => setEmailState(e.target.value)}
+                />
+              </div>
+
               <label className="font-semibold text-sm text-gray-600 pb-1 block">
                 Password
               </label>
 
-              <input
+              {/* <input
                 type="password"
                 name="password"
                 value={password}
                 onChange={(e) => setPasswordState(e.target.value)}
                 className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
-              />
+              /> */}
 
+              <div className="flex bg-gray-100 p-3 space-x-4 mb-7 mt-0.5 rounded-lg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  color="gray"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                  />
+                </svg>
+
+                <input
+                  type="password"
+                  name="password"
+                  value={password}
+                  placeholder="Enter password"
+                  onChange={(e) => setPasswordState(e.target.value)}
+                  className="bg-gray-100 outline-none text-sm w-full"
+                />
+              </div>
               <button
                 onClick={signUpBtn}
                 type="button"

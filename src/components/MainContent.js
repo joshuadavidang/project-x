@@ -8,15 +8,8 @@ const MainContent = () => {
   });
   return (
     <div>
-      <div className="mt-5 flex justify-center">
-        <div class="grid grid-cols-2 gap-4">
-          <div>
-            <span className="text-2xl font-bold ">English</span>
-          </div>
-          <div class="...">
-            <SearchBar />
-          </div>
-        </div>
+      <div className="mt-1 flex justify-center">
+        <SearchBar subjectTitle="English" />
       </div>
 
       <div className="grid grid-cols-3 gap-4 mx-10 my-14 ">

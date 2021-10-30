@@ -68,13 +68,36 @@ const ForgetPassword = () => {
               <label className="font-semibold text-sm text-gray-600 pb-1 block">
                 Email
               </label>
-              <input
+
+              <div className="flex bg-gray-100 p-3 space-x-4 mb-7 mt-0.5 rounded-lg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  color="gray"
+                >
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                </svg>
+
+                <input
+                  className="bg-gray-100 outline-none text-sm w-full"
+                  type="email"
+                  name="email"
+                  value={email}
+                  placeholder="Enter email"
+                  onChange={(e) => setEmailState(e.target.value)}
+                />
+              </div>
+
+              {/* <input
                 className="border rounded-lg px-3 py-2 mt-1 mb-4 text-sm w-full"
                 type="email"
                 name="email"
                 value={email}
                 onChange={(e) => setEmailState(e.target.value)}
-              />
+              /> */}
 
               <button
                 onClick={resetPassword}
