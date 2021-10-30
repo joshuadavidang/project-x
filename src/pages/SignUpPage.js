@@ -59,7 +59,6 @@ const SignUpPage = () => {
     <div>
       <div className="min-h-screen w-screen bg-gray-200 sm: px-6 flex flex-col justify-center overflow-y-hidden">
         <div className="p-1 xs:p-0 mx-auto md:w-full md:max-w-md">
-          {/* <h1 className="font-bold text-center text-2xl mb-5">Project X</h1> */}
           <div className="bg-white shadow w-full rounded-lg divide-y divide-gray-200">
             <div className="px-10 py-10">
               <Link to="/">
@@ -91,13 +90,6 @@ const SignUpPage = () => {
               <label className="font-semibold text-sm text-gray-600 pb-1 block">
                 Email
               </label>
-              {/* <input
-                className="border rounded-lg px-3 py-2 mt-1 mb-4 text-sm w-full"
-                type="email"
-                name="email"
-                value={email}
-                onChange={(e) => setEmailState(e.target.value)}
-              /> */}
 
               <div className="flex bg-gray-100 p-3 space-x-4 mb-7 mt-0.5 rounded-lg">
                 <svg
@@ -125,14 +117,6 @@ const SignUpPage = () => {
                 Password
               </label>
 
-              {/* <input
-                type="password"
-                name="password"
-                value={password}
-                onChange={(e) => setPasswordState(e.target.value)}
-                className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
-              /> */}
-
               <div className="flex bg-gray-100 p-3 space-x-4 mb-7 mt-0.5 rounded-lg">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -154,7 +138,7 @@ const SignUpPage = () => {
                   type="password"
                   name="password"
                   value={password}
-                  placeholder="Enter password"
+                  placeholder="New password"
                   onChange={(e) => setPasswordState(e.target.value)}
                   className="bg-gray-100 outline-none text-sm w-full"
                 />
