@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { getAuth, signOut } from "firebase/auth";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
 import Avatar from "react-avatar";
 import { useDispatch } from "react-redux"; // to access state data, to dispatch data
 import { LOGOUT_ACTION } from "../redux/reducers/authentication";
+import SubjectContent from "../data/SubjectContent";
 
 const NavBar = ({ emailData }) => {
   const history = useHistory();
   const dispatch = useDispatch();
+
+  const [selectedBtnState, setSelectedBtnState] = useState(false);
+
+  const SubjectBtn = () => {
+    setSelectedBtnState(true);
+    console.log(selectedBtnState);
+  };
 
   const signOutBtn = () => {
     const auth = getAuth();
@@ -57,24 +65,53 @@ const NavBar = ({ emailData }) => {
           </div>
 
           <div className="m-2 cursor-pointer">
-            <ul onClick={() => alert("Under Construction")}>
-              <li className="text-center py-3.5 hover:text-white hover:bg-black hover:font-bold rounded rounded-lg">
-                <span>English</span>
-              </li>
+            <ul onClick={SubjectBtn}>
+              {selectedBtnState == true ? (
+                <li className="text-center py-2 border-r-8 ">
+                  <span>English</span>
+                </li>
+              ) : (
+                <li className="text-center py-2 ">
+                  <span>English</span>
+                </li>
+              )}
             </ul>
 
-            <ul onClick={() => alert("Under Construction")}>
-              <li className="text-center py-3.5 hover:text-white hover:bg-black hover:font-bold rounded rounded-lg">
-                <span>Math</span>
-              </li>
-            </ul>
+            {/* <ul onClick={SubjectBtn}>
+              {selectedBtnState == true ? (
+                <div>
+                  {SubjectContent.map((x) => (
+                    <ul>
+                      <li
+                        className="text-center py-2 border-r-8"
+                        onClick={(x) => SubjectBtn(x)}
+                      >
+                        <span>{x.subject}</span>
+                      </li>
+                    </ul>
+                  ))}
+                </div>
+              ) : (
+                <div>
+                  {SubjectContent.map((x) => (
+                    <ul>
+                      <li
+                        className="text-center py-2"
+                        onClick={(x) => SubjectBtn(x)}
+                      >
+                        <span>{x.subject}</span>
+                      </li>
+                    </ul>
+                  ))}
+                </div>
+              )}
+            </ul> */}
 
-            <ul onClick={() => alert("Under Construction")}>
+            {/* <ul onClick={() => alert("Under Construction")}>
               <li className="text-center py-3.5 hover:text-white hover:bg-black hover:font-bold rounded rounded-lg">
                 <span>Science</span>
               </li>
-            </ul>
-
+            </ul> */}
             <button
               onClick={signOutBtn}
               type="button"

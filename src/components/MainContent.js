@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import EnglishContent from "./EnglishContent";
+import SubjectContent from "../data/SubjectContent";
 import SearchBar from "./SearchBar";
 
 const MainContent = () => {
   useEffect(() => {
-    console.log(EnglishContent);
+    console.log(SubjectContent);
   });
   return (
     <div>
