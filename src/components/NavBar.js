@@ -92,7 +92,8 @@ const NavBar = ({ emailData }) => {
           <div className="text-center mb-8">
             <span onClick={goToWelcomeBtn}>{emailData}</span>{" "}
           </div>
-          {/* Home Icon */}
+
+          {/* ********* Home Icon ********* */}
           <li
             className={
               selectedHomeState === true
@@ -118,7 +119,8 @@ const NavBar = ({ emailData }) => {
 
             <span>Home</span>
           </li>
-          {/* Account Icon */}
+
+          {/* ********* Account Icon ********* */}
           <li
             className={
               selectedAccState === true
@@ -144,7 +146,8 @@ const NavBar = ({ emailData }) => {
 
             <span>Accounts</span>
           </li>
-          {/* English Icon */}
+
+          {/* ********* English Icon ********* */}
           <li
             className={
               selectedEngBtnState === true && selectedMathBtnState === false
@@ -170,7 +173,8 @@ const NavBar = ({ emailData }) => {
 
             <span>English</span>
           </li>
-          {/* Math Icon */}
+
+          {/* ********* Math Icon ********* */}
           {/* eslint-disable-next-line */}
           <li
             className={
@@ -199,7 +203,8 @@ const NavBar = ({ emailData }) => {
 
             <span>Math</span>
           </li>
-          {/* Log Out Icon  */}
+
+          {/* ********* Log Out Icon *********  */}
           <li
             className="text-center py-2 flex w-72 p-3 space-x-4 mt-0.5 justify-center cursor-pointer my-2"
             onClick={signOutBtn}
