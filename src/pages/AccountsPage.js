@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux"; // to access state data, to dispatch data
+import Avatar from "react-avatar";
 
 const AccountsPage = () => {
   const getData = useSelector((state) => state.authenticationReducer.value);
@@ -10,11 +11,7 @@ const AccountsPage = () => {
       <div className=" p-6 rounded-md tracking-wide shadow-lg">
         <div>
           <div id="header" className="flex items-center mb-4">
-            <img
-              alt="avatar"
-              className="w-20 rounded-full border-2 border-gray-300"
-              src="https://picsum.photos/seed/picsum/200"
-            />
+            <Avatar name={getData.email} size="100" round={true} />
             <div id="header-text" className="leading-5 ml-6 sm">
               <h4 id="name" className="text-xl font-semibold">
                 Email - {getData.email}
