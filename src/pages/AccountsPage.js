@@ -1,12 +1,21 @@
 import React from "react";
-import { useSelector } from "react-redux"; // to access state data, to dispatch data
 // import Avatar from "react-avatar";
-import { Link } from "react-router-dom";
 import AvatarSwiper from "../components/AvatarSwiper";
+import { useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { CONTENT_ACTION } from "../redux/reducers/content";
 
 const AccountsPage = () => {
   const getData = useSelector((state) => state.authenticationReducer.value);
   console.log(getData);
+
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  const forgetPassword = () => {
+    dispatch(CONTENT_ACTION({ isLoaded: false }));
+    history.push("/forgetpassword");
+  };
 
   return (
     <div className="flex items-center justify-center h-screen">
@@ -59,13 +68,15 @@ const AccountsPage = () => {
         </div>
 
         <div className="grid grid-cols-1 gap-4">
-          <div className="bg-gray-100 p-3 rounded-lg mb-6">
-            <Link to="/forgetpassword">
-              <h5 id="name" className=" text-lg font-semibold">
-                Forget Password
-              </h5>
-            </Link>
-          </div>
+          <button
+            onClick={forgetPassword}
+            type="button"
+            id="name"
+            className=" text-sm font-semibold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 
+                hover:from-pink-500 hover:to-yellow-500 text-white w-full py-3 rounded-lg  font-mono"
+          >
+            Forget Password
+          </button>
         </div>
       </div>
     </div>
