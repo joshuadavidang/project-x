@@ -9,15 +9,15 @@ const AccountsPage = () => {
   console.log(getData);
 
   return (
-    <div className="mt-10 flex justify-center">
-      <div className="p-10 w-1/2 mx-12 rounded-md tracking-wide shadow-lg ">
+    <div className="flex items-center justify-center h-screen">
+      <div className="p-10 w-auto rounded-md tracking-wide shadow-lg ">
         {/* <Avatar name={getData.email} size="100" round={true} /> */}
         <AvatarSwiper />
 
-        <div className="grid grid-cols-1 gap-4 mt-8 ">
-          <div className="bg-gray-100 p-3 rounded-lg mb-6">
+        <div className="grid grid-cols-1 gap-4 mt-2 ">
+          <div className="bg-white-100 p-3 rounded-lg mb-2">
             <h4 id="name" className="text-lg font-semibold ">
-              Avatar - {getData.avatarName}
+              {getData.avatarName}
             </h4>
           </div>
         </div>

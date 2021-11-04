@@ -95,7 +95,7 @@ const ForgetPassword = () => {
                 onClick={resetPassword}
                 type="button"
                 className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 
-                  hover:from-pink-500 hover:to-yellow-500 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
+                  hover:from-pink-500 hover:to-yellow-500 text-white w-full py-3 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
               >
                 {loadingAnimation === true ? (
                   <BeatLoader size={7} color={"white"} />

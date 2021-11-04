@@ -2,7 +2,7 @@ import React from "react";
 
 const EnglishPage = () => {
   return (
-    <div className="mt-10 flex justify-center">
+    <div className="flex items-center justify-center h-screen">
       <div className="max-w-sm p-6 rounded-md tracking-wide shadow-lg">
         <div id="header" className="flex items-center mb-4">
           <img

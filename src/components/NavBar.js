@@ -72,6 +72,7 @@ const NavBar = ({ emailData }) => {
                 message: "User signed out",
               })
             );
+            dispatch(CONTENT_ACTION({ isLoaded: false }));
             history.push("/");
           } else if (result.dismiss === Swal.DismissReason.cancel) {
             Swal.fire("Welcome back", "", "success");
