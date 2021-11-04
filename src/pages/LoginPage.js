@@ -20,8 +20,7 @@ const LoginPage = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.authenticationReducer.value);
-  const avatarObject = useSelector((state) => state.avatarReducer.value);
-
+  
   useEffect(() => {
     console.log("isAuthenticated: " + isAuthenticated);
     console.log(user);

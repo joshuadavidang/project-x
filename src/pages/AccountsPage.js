@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 
 const AccountsPage = () => {
   const getData = useSelector((state) => state.authenticationReducer.value);
-  // const avatarData = useSelector((state) => state.avatarReducer.value);
-  console.log(getData)
+  console.log(getData);
 
   return (
     <div className="mt-10 flex justify-center">
