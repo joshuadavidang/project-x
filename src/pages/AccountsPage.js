@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 const AccountsPage = () => {
   const getData = useSelector((state) => state.authenticationReducer.value);
-  const avatarData = useSelector((state) => state.avatarReducer.value);
-  // console.log(avatarData)
+  // const avatarData = useSelector((state) => state.avatarReducer.value);
+  console.log(getData)
 
   return (
     <div className="mt-10 flex justify-center">
@@ -16,7 +16,7 @@ const AccountsPage = () => {
         <div className="grid grid-cols-1 gap-4 mt-8 ">
           <div className="bg-gray-100 p-3 rounded-lg mb-6">
             <h4 id="name" className="text-lg font-semibold ">
-              Avatar - {avatarData.avatarName}
+              Avatar - {getData.avatarName}
             </h4>
           </div>
         </div>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import {
   getAuth,
   createUserWithEmailAndPassword,
+  updateProfile,
   // sendEmailVerification,
 } from "firebase/auth";
 // eslint-disable-next-line
@@ -12,8 +13,6 @@ import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
 import SignUp from "../assets/images/signup.svg";
 import BeatLoader from "react-spinners/BeatLoader";
-import { AVATAR_NAME_ACTION } from "../redux/reducers/avatarName";
-import { useDispatch } from "react-redux";
 
 const SignUpPage = () => {
   const [avatarName, setAvatarName] = useState("");
@@ -26,7 +25,6 @@ const SignUpPage = () => {
   // }, []);
 
   let history = useHistory();
-  let dispatch = useDispatch();
 
   const signUpBtn = () => {
     setLoadingAnimation(true);
@@ -35,11 +33,10 @@ const SignUpPage = () => {
       const auth = getAuth();
       createUserWithEmailAndPassword(auth, email, password)
         .then(() => {
-          dispatch(
-            AVATAR_NAME_ACTION({
-              avatarName: avatarName,
-            })
-          );
+          updateProfile(auth.currentUser, {
+            displayName: avatarName,
+          });
+
           Swal.fire("", "Account registered", "success");
           history.push("/loginpage");
 

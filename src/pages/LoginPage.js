@@ -38,7 +38,7 @@ const LoginPage = () => {
           // console.log(user.email);
           dispatch(
             LOGIN_ACTION({
-              avatarName: avatarObject.avatarName,
+              avatarName: user.displayName,
               email: user.email,
               isAuthenticated: true,
               uid: user.uid,
@@ -195,7 +195,7 @@ const LoginPage = () => {
 
               <div className='text-center mt-2'>
                 <label className="text-sm text-green-600 font-mono">
-                  <Link to="/forgetpassword"> Forgot Password?</Link>
+                  <Link to="/forgetpassword"> Reset Password</Link>
                 </label>
               </div>
             </div>
