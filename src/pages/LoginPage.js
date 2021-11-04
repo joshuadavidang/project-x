@@ -20,6 +20,7 @@ const LoginPage = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.authenticationReducer.value);
+  const avatarObject = useSelector((state) => state.avatarReducer.value);
 
   useEffect(() => {
     console.log("isAuthenticated: " + isAuthenticated);
@@ -37,23 +38,28 @@ const LoginPage = () => {
           // console.log(user.email);
           dispatch(
             LOGIN_ACTION({
+              avatarName: avatarObject.avatarName,
               email: user.email,
               isAuthenticated: true,
               uid: user.uid,
             })
           );
 
-          if (user.emailVerified === true) {
-            setIsAuthenticated(true);
-            Swal.fire("", "Signed in successful", "success");
-            history.push("/landingpage");
-          } else {
-            Swal.fire({
-              text: "Please verify your email before attempting to login",
-              icon: "warning",
-              confirmButtonText: "OK",
-            });
-          }
+          setIsAuthenticated(true);
+          Swal.fire("", "Signed in successful", "success");
+          history.push("/landingpage");
+
+          // if (user.emailVerified === true) {
+          //   setIsAuthenticated(true);
+          //   Swal.fire("", "Signed in successful", "success");
+          //   history.push("/landingpage");
+          // } else {
+          //   Swal.fire({
+          //     text: "Please verify your email before attempting to login",
+          //     icon: "warning",
+          //     confirmButtonText: "OK",
+          //   });
+          // }
         })
         .catch((error) => {
           const errorMessage = error.message;

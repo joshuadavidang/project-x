@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import {
   getAuth,
   createUserWithEmailAndPassword,
-  sendEmailVerification,
+  // sendEmailVerification,
 } from "firebase/auth";
 // eslint-disable-next-line
 import app from "../firebase";
@@ -12,8 +12,11 @@ import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
 import SignUp from "../assets/images/signup.svg";
 import BeatLoader from "react-spinners/BeatLoader";
+import { AVATAR_NAME_ACTION } from "../redux/reducers/avatarName";
+import { useDispatch } from "react-redux";
 
 const SignUpPage = () => {
+  const [avatarName, setAvatarName] = useState("");
   const [email, setEmailState] = useState("");
   const [password, setPasswordState] = useState("");
   const [loadingAnimation, setLoadingAnimation] = useState(false);
@@ -23,6 +26,7 @@ const SignUpPage = () => {
   // }, []);
 
   let history = useHistory();
+  let dispatch = useDispatch();
 
   const signUpBtn = () => {
     setLoadingAnimation(true);
@@ -31,16 +35,24 @@ const SignUpPage = () => {
       const auth = getAuth();
       createUserWithEmailAndPassword(auth, email, password)
         .then(() => {
-          sendEmailVerification(auth.currentUser).then(() => {
-            Swal.fire(
-              {
-                text: "Click on the link in your email to verify your account.",
-                icon: "info",
-                confirmButtonText: "OK",
-              },
-              history.push("/loginpage")
-            );
-          });
+          dispatch(
+            AVATAR_NAME_ACTION({
+              avatarName: avatarName,
+            })
+          );
+          Swal.fire("", "Account registered", "success");
+          history.push("/loginpage");
+
+          // sendEmailVerification(auth.currentUser).then(() => {
+          //   Swal.fire(
+          //     {
+          //       text: "Click on the link in your email to verify your account.",
+          //       icon: "info",
+          //       confirmButtonText: "OK",
+          //     },
+          //     history.push("/loginpage")
+          //   );
+          // });
         })
         .catch((error) => {
           const errorMessage = error.message;
@@ -83,15 +95,48 @@ const SignUpPage = () => {
                 <img src={SignUp} alt="sign up" className="mb-3 w-3/5" />
               </div>
 
-              <h1 className="font-mono text-center text-lg mb-3">
+              <h1 className="font-mono text-center text-lg mb-6">
                 Sign up for an account
               </h1>
 
+              {/* Avatar's Name */}
               <label className="font-semibold text-sm text-gray-600 pb-1 block">
-                Email
+                {/* Give your avatar a name */}
               </label>
 
-              <div className="flex bg-gray-100 p-3 space-x-4 mb-7 mt-0.5 rounded-lg">
+              <div className="flex bg-gray-100 p-3 space-x-4 mb-3 rounded-lg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  color="gray"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+
+                <input
+                  className="bg-gray-100 outline-none text-sm w-full"
+                  type="text"
+                  name="avatarName"
+                  value={avatarName}
+                  placeholder="Give your avatar a name"
+                  onChange={(e) => setAvatarName(e.target.value)}
+                />
+              </div>
+
+              {/* Email */}
+              <label className="font-semibold text-sm text-gray-600 pb-1 block">
+                {/* Email */}
+              </label>
+
+              <div className="flex bg-gray-100 p-3 space-x-4 mb-3 rounded-lg">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
@@ -113,11 +158,12 @@ const SignUpPage = () => {
                 />
               </div>
 
+              {/* Password */}
               <label className="font-semibold text-sm text-gray-600 pb-1 block">
-                Password
+                {/* Password */}
               </label>
 
-              <div className="flex bg-gray-100 p-3 space-x-4 mb-7 mt-0.5 rounded-lg">
+              <div className="flex bg-gray-100 p-3 space-x-4 mb-7 rounded-lg">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
