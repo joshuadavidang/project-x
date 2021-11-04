@@ -65,9 +65,9 @@ const ForgetPassword = () => {
                 Enter your email to reset your password
               </h1>
 
-              <label className="font-semibold text-sm text-gray-600 pb-1 block">
+              {/* <label className="font-semibold text-sm text-gray-600 pb-1 block">
                 Email
-              </label>
+              </label> */}
 
               <div className="flex bg-gray-100 p-3 space-x-4 mb-7 mt-0.5 rounded-lg">
                 <svg

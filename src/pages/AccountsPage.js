@@ -7,7 +7,7 @@ const AccountsPage = () => {
   const getData = useSelector((state) => state.authenticationReducer.value);
   const avatarData = useSelector((state) => state.avatarReducer.value);
   // console.log(avatarData)
-  
+
   return (
     <div className="mt-10 flex justify-center">
       <div className="p-10 w-1/2 mx-12 rounded-md tracking-wide shadow-lg ">
@@ -21,7 +21,7 @@ const AccountsPage = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 mt-8 ">
+        <div className="grid grid-cols-1 gap-4">
           <div className="bg-gray-100 p-3 rounded-lg mb-6">
             <h4 id="name" className="text-lg font-semibold ">
               Email - {getData.email}
@@ -29,7 +29,7 @@ const AccountsPage = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-4">
+        {/* <div className="grid grid-cols-1 gap-4">
           <div className="bg-gray-100 p-3 rounded-lg mb-6">
             {getData.isAuthenticated === true ? (
               <h5 id="name" className=" text-lg font-semibold">
@@ -41,7 +41,7 @@ const AccountsPage = () => {
               </h5>
             )}
           </div>
-        </div>
+        </div> */}
 
         <div className="grid grid-cols-1 gap-4">
           <div className="bg-gray-100 p-3 rounded-lg mb-6">

@@ -106,11 +106,11 @@ const LoginPage = () => {
                 Login to your account
               </h1>
 
-              <label className="font-semibold text-sm text-gray-600 pb-1 block">
+              {/* <label className="font-semibold text-sm text-gray-600 pb-1 block">
                 Email
-              </label>
+              </label> */}
 
-              <div className="flex bg-gray-100 p-3 space-x-4 mb-7 mt-0.5 rounded-lg">
+              <div className="flex bg-gray-100 p-3 space-x-4 mb-6 rounded-lg">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
@@ -132,7 +132,7 @@ const LoginPage = () => {
                 />
               </div>
 
-              <div className="md:grid grid-cols-2 gap-x-20">
+              {/* <div className="md:grid grid-cols-2 gap-x-20">
                 <div>
                   <label className="font-semibold text-sm text-gray-600 pb-1 block">
                     Password
@@ -144,7 +144,7 @@ const LoginPage = () => {
                     <Link to="/forgetpassword"> Forgot Password?</Link>
                   </label>
                 </div>
-              </div>
+              </div> */}
 
               <div className="flex bg-gray-100 p-3 space-x-4 mb-7 mt-0.5 rounded-lg">
                 <svg
@@ -192,6 +192,12 @@ const LoginPage = () => {
                   <span className="hover:text-green-400 font-bold">here</span>
                 </Link>
               </p>
+
+              <div className='text-center mt-2'>
+                <label className="text-sm text-green-600 font-mono">
+                  <Link to="/forgetpassword"> Forgot Password?</Link>
+                </label>
+              </div>
             </div>
           </div>
         </div>
