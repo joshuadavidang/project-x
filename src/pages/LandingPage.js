@@ -20,14 +20,11 @@ const LandingPage = () => {
   return (
     <>
       <div className="flex flex-row">
-        <aside className="w-full sm:w-1/4 md:w-2/6 xl:w-1/6 bg-white">
+        <aside className="w-1/6 bg-white h-screen">
           <NavBar emailData={getData.email} />
         </aside>
 
-        <main
-          role="main"
-          className="w-full sm:w-3/4 md:w-4/6 xl:w-5/6 text-center bg-white"
-        >
+        <main role="main" className="w-5/6 h-screen text-center">
           <MainContent />
         </main>
       </div>
