@@ -92,7 +92,7 @@ const SignUpPage = () => {
                 <AvatarSwiper />
               </div>
 
-              <h1 className="font-mono text-center text-lg mb-6">
+              <h1 className="font-mono text-center text-lg mb-6 mt-8">
                 Sign up for an account
               </h1>
 
@@ -202,7 +202,9 @@ const SignUpPage = () => {
               <p className="text-center pt-7 text-gray-600 font-mono text-sm">
                 Have an account? Login{" "}
                 <Link to="/loginpage">
-                  <span className="hover:text-green-400 font-bold">here</span>
+                  <span className="hover:text-green-400 underline font-bold">
+                    here
+                  </span>
                 </Link>
               </p>
             </div>

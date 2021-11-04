@@ -1,11 +1,13 @@
 import React from "react";
-import SignUp from "../assets/images/signup.svg";
+import Avatar, { genConfig } from "react-nice-avatar";
+
+const config = genConfig();
 
 const AvatarSwiper = () => {
   return (
     <div>
       <div className="flex justify-center">
-        <img src={SignUp} alt="sign up" className="mb-3 w-3/5" />
+        <Avatar style={{ width: "8rem", height: "8rem" }} {...config} />
       </div>
     </div>
   );

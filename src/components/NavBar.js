@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { getAuth, signOut } from "firebase/auth";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
-import Avatar from "react-avatar";
+// import Avatar from "react-avatar";
 import { useDispatch } from "react-redux"; // to access state data, to dispatch data
 import { LOGOUT_ACTION } from "../redux/reducers/authentication";
 import { CONTENT_ACTION } from "../redux/reducers/content";
+import AvatarSwiper from "./AvatarSwiper";
 
 const NavBar = ({ emailData }) => {
   const history = useHistory();
@@ -87,7 +88,8 @@ const NavBar = ({ emailData }) => {
       <ul className="flex flex-col overflow-hidden">
         <nav className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 flex flex-col h-screen px-4 text-white rounded-r-3xl ">
           <div className="flex justify-center m-8">
-            <Avatar name={emailData} size="100" round={true} />
+            {/* <Avatar name={emailData} size="100" round={true} /> */}
+            <AvatarSwiper />
           </div>
           <div className="text-center mb-8">
             <span onClick={goToWelcomeBtn}>{emailData}</span>{" "}

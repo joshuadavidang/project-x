@@ -5,12 +5,13 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import app from "../firebase";
 import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
-import Login from "../assets/images/login.svg";
+// import Login from "../assets/images/login.svg";
 import BeatLoader from "react-spinners/BeatLoader";
 
 // Redux
 import { useSelector, useDispatch } from "react-redux"; // useSelect - access data from store |||| useDispatch - to send data to store
 import { LOGIN_ACTION } from "../redux/reducers/authentication";
+import AvatarSwiper from "../components/AvatarSwiper";
 
 const LoginPage = () => {
   const [email, setEmailState] = useState("");
@@ -20,7 +21,7 @@ const LoginPage = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.authenticationReducer.value);
-  
+
   useEffect(() => {
     console.log("isAuthenticated: " + isAuthenticated);
     console.log(user);
@@ -98,10 +99,11 @@ const LoginPage = () => {
               </Link>
 
               <div className="flex justify-center">
-                <img src={Login} alt="login" className="mb-7 w-3/5" />
+                {/* <img src={Login} alt="login" className="mb-7 w-3/5" /> */}
+                <AvatarSwiper />
               </div>
 
-              <h1 className=" text-center text-lg mb-3 font-mono">
+              <h1 className=" text-center text-lg mb-3 font-mono mt-8">
                 Login to your account
               </h1>
 
@@ -188,11 +190,13 @@ const LoginPage = () => {
               <p className="text-center pt-7 text-gray-600 text-sm font-mono">
                 Don't have an account? Register{" "}
                 <Link to="/signup">
-                  <span className="hover:text-green-400 font-bold">here</span>
+                  <span className="hover:text-green-400 underline font-bold">
+                    here
+                  </span>
                 </Link>
               </p>
 
-              <div className='text-center mt-2'>
+              <div className="text-center mt-2">
                 <label className="text-sm text-green-600 font-mono">
                   <Link to="/forgetpassword"> Reset Password</Link>
                 </label>
