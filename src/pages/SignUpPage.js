@@ -38,7 +38,7 @@ const SignUpPage = () => {
                 icon: "info",
                 confirmButtonText: "OK",
               },
-              history.push("/")
+              history.push("/loginpage")
             );
           });
         })
@@ -57,7 +57,7 @@ const SignUpPage = () => {
 
   return (
     <div>
-      <div className="min-h-screen w-screen bg-gray-200 sm: px-6 flex flex-col justify-center overflow-y-hidden">
+      <div className="min-h-screen w-screen bg-gray-200 sm: px-6 flex flex-col justify-center overflow-y-hidden bg-cover bg-no-repeat bg-ezreal-image min-w-full h-screen">
         <div className="p-1 xs:p-0 mx-auto md:w-full md:max-w-md">
           <div className="bg-white shadow w-full rounded-lg divide-y divide-gray-200">
             <div className="px-10 py-10">
@@ -158,7 +158,7 @@ const SignUpPage = () => {
 
               <p className="text-center pt-7 text-gray-600">
                 Have an account? Login{" "}
-                <Link to="/">
+                <Link to="/loginpage">
                   <span className="hover:text-green-400 font-bold">here</span>
                 </Link>
               </p>

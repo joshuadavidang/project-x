@@ -20,7 +20,7 @@ const ForgetPassword = () => {
         .then(() => {
           // Password reset email sent!
           Swal.fire("", "Check your email for further instructions", "success");
-          history.push("/");
+          history.push("/loginpage");
         })
         .catch((error) => {
           const errorMessage = error.message;
@@ -31,11 +31,11 @@ const ForgetPassword = () => {
 
   return (
     <div>
-      <div className=" min-h-screen w-screen bg-gray-200 sm: px-6 flex flex-col justify-center">
+      <div className=" min-h-screen w-screen bg-gray-200 sm: px-6 flex flex-col justify-center bg-cover bg-no-repeat bg-ezreal-image min-w-full h-screen">
         <div className="p-1 xs:p-0 mx-auto md:w-full md:max-w-md">
           <div className="shadow bg-white w-full rounded-lg divide-y divide-gray-200">
             <div className="px-10 py-10">
-              <Link to="/">
+              <Link to="/loginpage">
                 {" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
