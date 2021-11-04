@@ -195,7 +195,7 @@ const SignUpPage = () => {
                 {loadingAnimation === true ? (
                   <BeatLoader size={7} color={"white"} />
                 ) : (
-                  <span className="inline-block">Register</span>
+                  <span className="inline-block tracking-wider">Register</span>
                 )}
               </button>
 

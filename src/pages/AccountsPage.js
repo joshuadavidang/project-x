@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 // import Avatar from "react-avatar";
 import AvatarSwiper from "../components/AvatarSwiper";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { CONTENT_ACTION } from "../redux/reducers/content";
+import BeatLoader from "react-spinners/BeatLoader";
 
 const AccountsPage = () => {
+  const [loading, setLoading] = useState(false);
   const getData = useSelector((state) => state.authenticationReducer.value);
   console.log(getData);
 
@@ -13,8 +15,12 @@ const AccountsPage = () => {
   const dispatch = useDispatch();
 
   const forgetPassword = () => {
-    dispatch(CONTENT_ACTION({ isLoaded: false }));
-    history.push("/forgetpassword");
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      dispatch(CONTENT_ACTION({ isLoaded: false }));
+      history.push("/forgetpassword");
+    }, 600);
   };
 
   return (
@@ -73,9 +79,9 @@ const AccountsPage = () => {
             type="button"
             id="name"
             className=" text-sm font-semibold bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 
-                hover:from-pink-500 hover:to-yellow-500 text-white w-full py-3 rounded-lg  font-mono"
+                hover:from-pink-500 hover:to-yellow-500 text-white w-full py-3 rounded-lg  font-mono tracking-wide"
           >
-            Forget Password
+            {loading === true ? <BeatLoader size={7} /> : " Change Password"}
           </button>
         </div>
       </div>

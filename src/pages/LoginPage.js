@@ -183,7 +183,7 @@ const LoginPage = () => {
                 {loadingAnimation === true ? (
                   <BeatLoader size={7} color={"white"} />
                 ) : (
-                  <span className="inline-block">Login</span>
+                  <span className="inline-block tracking-wider">Login</span>
                 )}
               </button>
 

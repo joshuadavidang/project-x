@@ -31,7 +31,7 @@ const PreLoginPage = () => {
             {loadingAnimation === true ? (
               <PulseLoader size={7} color={"white"} />
             ) : (
-              <span className="font-mono">PLAY</span>
+              <span className="font-mono tracking-widest">PLAY</span>
             )}
           </button>
         </div>

@@ -125,35 +125,6 @@ const NavBar = ({ emailData }) => {
             </li>
           </div>
 
-          {/* ********* Account Icon ********* */}
-          <div className="flex justify-center">
-            <li
-              className={
-                selectedAccState === true
-                  ? "text-center py-2 border-r-8 w-72 flex p-3 space-x-4 mt-0.5 justify-center cursor-pointer my-2"
-                  : "text-center py-2  w-72 flex p-3 space-x-4 mt-0.5 justify-center cursor-pointer my-2"
-              }
-              onClick={goToAccounts}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                />
-              </svg>
-
-              <span>Accounts</span>
-            </li>
-          </div>
-
           {/* ********* English Icon ********* */}
           <div className="flex justify-center">
             <li
@@ -211,6 +182,35 @@ const NavBar = ({ emailData }) => {
               </svg>
 
               <span>Math</span>
+            </li>
+          </div>
+
+          {/* ********* Account Icon ********* */}
+          <div className="flex justify-center">
+            <li
+              className={
+                selectedAccState === true
+                  ? "text-center py-2 border-r-8 w-72 flex p-3 space-x-4 mt-0.5 justify-center cursor-pointer my-2"
+                  : "text-center py-2  w-72 flex p-3 space-x-4 mt-0.5 justify-center cursor-pointer my-2"
+              }
+              onClick={goToAccounts}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                />
+              </svg>
+
+              <span>Accounts</span>
             </li>
           </div>
 
