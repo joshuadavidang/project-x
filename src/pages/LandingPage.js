@@ -66,7 +66,7 @@ const LandingPage = () => {
         </aside>
 
         <main role="main" className="w-screen text-center h-screen">
-          <div className="bg-black h-5/6 flex justify-center items-center">
+          <div className="h-5/6 flex justify-center items-center">
             <MainContent />
           </div>
 
