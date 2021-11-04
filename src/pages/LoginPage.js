@@ -103,7 +103,7 @@ const LoginPage = () => {
                 <AvatarSwiper />
               </div>
 
-              <h1 className=" text-center text-lg mb-3 font-mono mt-8">
+              <h1 className=" text-center text-lg mb-3 font-mono mb-6 mt-8">
                 Login to your account
               </h1>
 

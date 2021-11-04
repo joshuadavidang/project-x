@@ -97,9 +97,9 @@ const SignUpPage = () => {
               </h1>
 
               {/* Avatar's Name */}
-              <label className="font-semibold text-sm text-gray-600 pb-1 block">
-                {/* Give your avatar a name */}
-              </label>
+              {/* <label className="font-semibold text-sm text-gray-600 pb-1 block">
+                Give your avatar a name
+              </label> */}
 
               <div className="flex bg-gray-100 p-3 space-x-4 mb-3 rounded-lg">
                 <svg
