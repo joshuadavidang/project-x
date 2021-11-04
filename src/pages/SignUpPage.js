@@ -61,7 +61,7 @@ const SignUpPage = () => {
         <div className="p-1 xs:p-0 mx-auto md:w-full md:max-w-md">
           <div className="bg-white shadow w-full rounded-lg divide-y divide-gray-200">
             <div className="px-10 py-10">
-              <Link to="/">
+              <Link to="/loginpage">
                 {" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -83,7 +83,7 @@ const SignUpPage = () => {
                 <img src={SignUp} alt="sign up" className="mb-3 w-3/5" />
               </div>
 
-              <h1 className="font-semibold text-center text-lg mb-3">
+              <h1 className="font-mono text-center text-lg mb-3">
                 Sign up for an account
               </h1>
 
@@ -150,13 +150,13 @@ const SignUpPage = () => {
                 hover:from-pink-500 hover:to-yellow-500 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
               >
                 {loadingAnimation === true ? (
-                  <BeatLoader size={7} />
+                  <BeatLoader size={7} color={"white"} />
                 ) : (
                   <span className="inline-block">Register</span>
                 )}
               </button>
 
-              <p className="text-center pt-7 text-gray-600">
+              <p className="text-center pt-7 text-gray-600 font-mono text-sm">
                 Have an account? Login{" "}
                 <Link to="/loginpage">
                   <span className="hover:text-green-400 font-bold">here</span>

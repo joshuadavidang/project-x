@@ -11,17 +11,17 @@ const PreLoginPage = () => {
     setTimeout(() => {
       setLoadingAnimation(false);
       history.push("/loginpage");
-    }, 800);
+    }, 500);
   };
 
   return (
     <div className="bg-cover bg-no-repeat bg-ezreal-image min-w-full h-screen flex items-center justify-center">
       <div className="p-10 ">
         <div className="flex justify-center">
-          <p className="text-5xl text-pink-100">Mission Possible</p>
+          <p className="text-5xl text-pink-100 font-mono">Mission Possible</p>
         </div>
 
-        <div className="flex justify-center mt-8">
+        <div className="flex justify-center mt-10">
           <button
             onClick={playBtn}
             type="button"
@@ -31,7 +31,7 @@ const PreLoginPage = () => {
             {loadingAnimation === true ? (
               <PulseLoader size={7} color={"white"} />
             ) : (
-              <span>PLAY</span>
+              <span className="font-mono">PLAY</span>
             )}
           </button>
         </div>

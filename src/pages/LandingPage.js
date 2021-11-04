@@ -19,7 +19,7 @@ const LandingPage = () => {
 
   return (
     <>
-      <div className="flex flex-row flex-wrap">
+      <div className="flex flex-row">
         <aside className="w-full sm:w-1/4 md:w-2/6 xl:w-1/6 bg-white">
           <NavBar emailData={getData.email} />
         </aside>

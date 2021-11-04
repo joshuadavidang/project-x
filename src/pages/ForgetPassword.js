@@ -61,7 +61,7 @@ const ForgetPassword = () => {
                 />
               </div>
 
-              <h1 className="font-semibold text-center text-lg mb-3">
+              <h1 className="font-mono text-center text-md mb-3">
                 Enter your email to reset your password
               </h1>
 
@@ -91,14 +91,6 @@ const ForgetPassword = () => {
                 />
               </div>
 
-              {/* <input
-                className="border rounded-lg px-3 py-2 mt-1 mb-4 text-sm w-full"
-                type="email"
-                name="email"
-                value={email}
-                onChange={(e) => setEmailState(e.target.value)}
-              /> */}
-
               <button
                 onClick={resetPassword}
                 type="button"
@@ -106,7 +98,7 @@ const ForgetPassword = () => {
                   hover:from-pink-500 hover:to-yellow-500 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
               >
                 {loadingAnimation === true ? (
-                  <BeatLoader size={7} />
+                  <BeatLoader size={7} color={"white"} />
                 ) : (
                   <span className="inline-block">Reset Password</span>
                 )}

@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const authenticationSlice = createSlice({
   name: "authentication",
-  initialState: { value: { email: "", isAuthenticated: "" } },
+  initialState: { value: { email: "", isAuthenticated: "", uid: "" } },
   // functions to alter values
   reducers: {
     LOGIN_ACTION: (state, action) => {
