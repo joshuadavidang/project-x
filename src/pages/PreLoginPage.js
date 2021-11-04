@@ -11,7 +11,7 @@ const PreLoginPage = () => {
     setTimeout(() => {
       setLoadingAnimation(false);
       history.push("/loginpage");
-    }, 500);
+    }, 800);
   };
 
   return (

@@ -11,8 +11,8 @@ import app from "../firebase";
 import { useHistory } from "react-router-dom";
 
 import Swal from "sweetalert2";
-import SignUp from "../assets/images/signup.svg";
 import BeatLoader from "react-spinners/BeatLoader";
+import AvatarSwiper from "../components/AvatarSwiper";
 
 const SignUpPage = () => {
   const [avatarName, setAvatarName] = useState("");
@@ -89,7 +89,7 @@ const SignUpPage = () => {
               </Link>
 
               <div className="flex justify-center">
-                <img src={SignUp} alt="sign up" className="mb-3 w-3/5" />
+                <AvatarSwiper />
               </div>
 
               <h1 className="font-mono text-center text-lg mb-6">
