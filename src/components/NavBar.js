@@ -8,7 +8,7 @@ import { useDispatch  } from "react-redux"; // to access state data, to dispatch
 import { CONTENT_ACTION } from "../redux/reducers/content";
 import AvatarSwiper from "./AvatarSwiper";
 
-const NavBar = ({ emailData }) => {
+const NavBar = ({ avatarData }) => {
   // const history = useHistory();
   const dispatch = useDispatch();
   // const contentData = useSelector((state) => state.contentReducer.value);
@@ -93,8 +93,8 @@ const NavBar = ({ emailData }) => {
             {/* <Avatar name={emailData} size="100" round={true} /> */}
             <AvatarSwiper />
           </div>
-          <div className="text-center mb-8">
-            <span className="font-mono">{emailData}</span>{" "}
+          <div className="text-center mb-6">
+            <span className="font-mono">{avatarData}</span>{" "}
           </div>
 
           {/* ********* Home Icon ********* */}

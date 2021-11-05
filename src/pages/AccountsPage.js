@@ -40,7 +40,7 @@ const AccountsPage = () => {
         <div className="grid grid-cols-1 gap-4">
           <div className="bg-gray-100 p-3 rounded-lg mb-6">
             <h4 id="name" className="text-sm font-semibold ">
-              Email - {getData.email}
+              {getData.email}
             </h4>
           </div>
         </div>

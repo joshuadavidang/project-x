@@ -14,7 +14,7 @@ const LandingPage = () => {
   const dispatch = useDispatch();
   const getData = useSelector((state) => state.authenticationReducer.value);
   const contentData = useSelector((state) => state.contentReducer.value);
-  console.log(contentData);
+  console.log(getData);
 
   useEffect(() => {
     if (getData.isAuthenticated == false) {
@@ -79,7 +79,7 @@ const LandingPage = () => {
       <div className="flex">
         <aside className="w-auto bg-white h-screen">
           {/* ****** Navbar ****** */}
-          <NavBar emailData={getData.email} />
+          <NavBar avatarData={getData.avatarName} />
         </aside>
 
         <main
