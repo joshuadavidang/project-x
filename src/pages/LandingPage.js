@@ -86,6 +86,11 @@ const LandingPage = () => {
           role="main"
           className="w-screen text-center h-screen overflow-hidden"
         >
+          {/* ****** Main Content ****** (2 rows) */}
+          <div className="h-5/6 flex justify-center items-end">
+            <MainContent />
+          </div>
+
           <div className="h-1/6 flex justify-end items-center space-x-8 pr-12">
             <div
               onClick={inventoryBtn}
@@ -159,11 +164,6 @@ const LandingPage = () => {
 
               <span className="font-mono">Log Out</span>
             </div>
-          </div>
-
-          {/* ****** Main Content ****** (2 rows) */}
-          <div className="h-5/6 flex justify-center items-end">
-            <MainContent />
           </div>
         </main>
       </div>
