@@ -31,7 +31,7 @@ const AccountsPage = () => {
 
         <div className="grid grid-cols-1 gap-4 mt-2 ">
           <div className="bg-white-100 p-3 rounded-lg mb-2">
-            <h4 id="name" className="text-lg font-semibold ">
+            <h4 id="name" className="text-sm font-semibold ">
               {getData.avatarName} - {getData.avatar}
             </h4>
           </div>
@@ -39,7 +39,7 @@ const AccountsPage = () => {
 
         <div className="grid grid-cols-1 gap-4">
           <div className="bg-gray-100 p-3 rounded-lg mb-6">
-            <h4 id="name" className="text-lg font-semibold ">
+            <h4 id="name" className="text-sm font-semibold ">
               Email - {getData.email}
             </h4>
           </div>
@@ -62,11 +62,11 @@ const AccountsPage = () => {
         <div className="grid grid-cols-1 gap-4">
           <div className="bg-gray-100 p-3 rounded-lg mb-6">
             {getData.uid === "" ? (
-              <h5 id="name" className=" text-lg font-semibold">
+              <h5 id="name" className=" text-sm font-semibold">
                 Please login to view your uuid
               </h5>
             ) : (
-              <h5 id="name" className=" text-lg font-semibold">
+              <h5 id="name" className=" text-sm font-semibold">
                 {getData.uid}{" "}
               </h5>
             )}

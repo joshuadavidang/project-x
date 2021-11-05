@@ -15,6 +15,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 import AvatarSwiper from "../components/AvatarSwiper";
 
 const SignUpPage = () => {
+  // eslint-disable-next-line
   const [avatar, setAvatar] = useState("");
   const [avatarName, setAvatarName] = useState("");
   const [email, setEmailState] = useState("");
@@ -36,7 +37,7 @@ const SignUpPage = () => {
       createUserWithEmailAndPassword(auth, email, password)
         .then(() => {
           updateProfile(auth.currentUser, {
-            photoURL: avatar,
+            photoURL: 'incoming',
             displayName: avatarName,
           });
 

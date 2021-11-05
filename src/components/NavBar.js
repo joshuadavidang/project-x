@@ -3,7 +3,7 @@ import React, { useState } from "react";
 // import { useHistory } from "react-router-dom";
 // import Swal from "sweetalert2";
 // import Avatar from "react-avatar";
-import { useDispatch, useSelector } from "react-redux"; // to access state data, to dispatch data
+import { useDispatch  } from "react-redux"; // to access state data, to dispatch data
 // import { LOGOUT_ACTION } from "../redux/reducers/authentication";
 import { CONTENT_ACTION } from "../redux/reducers/content";
 import AvatarSwiper from "./AvatarSwiper";
@@ -11,7 +11,7 @@ import AvatarSwiper from "./AvatarSwiper";
 const NavBar = ({ emailData }) => {
   // const history = useHistory();
   const dispatch = useDispatch();
-  const contentData = useSelector((state) => state.contentReducer.value);
+  // const contentData = useSelector((state) => state.contentReducer.value);
 
   const [selectedEngBtnState, setSelectedEngBtnState] = useState(false);
   const [selectedMathBtnState, setSelectedMathBtnState] = useState(false);
@@ -131,10 +131,9 @@ const NavBar = ({ emailData }) => {
           <div className="flex justify-center">
             <li
               className={
-                selectedEngBtnState === true &&
-                selectedMathBtnState === false &&
-                contentData.isLoaded === true
-                  ? "text-center py-2 border-r-8 w-72 flex p-3 space-x-4 mt-0.5 justify-center cursor-pointer my-2"
+                selectedEngBtnState === true && selectedMathBtnState === false
+                  ? // contentData.isLoaded === true
+                    "text-center py-2 border-r-8 w-72 flex p-3 space-x-4 mt-0.5 justify-center cursor-pointer my-2"
                   : "text-center py-2 w-72 flex p-3 space-x-4 mt-0.5 justify-center cursor-pointer my-2"
               }
               onClick={EnglishBtn}
@@ -162,9 +161,7 @@ const NavBar = ({ emailData }) => {
           <div className="flex justify-center">
             <li
               className={
-                selectedMathBtnState === true &&
-                selectedEngBtnState === false &&
-                contentData.isLoaded === true
+                selectedMathBtnState === true && selectedEngBtnState === false
                   ? "text-center py-2 border-r-8 w-72 flex p-3 space-x-4 mt-0.5 justify-center cursor-pointer my-2"
                   : "text-center py-2 w-72 flex p-3 space-x-4 mt-0.5 justify-center cursor-pointer my-2"
               }

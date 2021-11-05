@@ -78,15 +78,15 @@ const LandingPage = () => {
     <>
       <div className="flex">
         <aside className="w-auto bg-white h-screen">
+          {/* ****** Navbar ****** */}
           <NavBar emailData={getData.email} />
         </aside>
 
-        <main role="main" className="w-screen text-center h-screen">
-          <div className="h-5/6 flex justify-center items-center">
-            <MainContent />
-          </div>
-
-          <div className="bg-gray-100 h-1/6 flex justify-end items-center space-x-8 pr-12">
+        <main
+          role="main"
+          className="w-screen text-center h-screen overflow-hidden"
+        >
+          <div className="h-1/6 flex justify-end items-center space-x-8 pr-12">
             <div
               onClick={inventoryBtn}
               className={
@@ -159,6 +159,11 @@ const LandingPage = () => {
 
               <span className="font-mono">Log Out</span>
             </div>
+          </div>
+
+          {/* ****** Main Content ****** (2 rows) */}
+          <div className="h-5/6 flex justify-center items-end">
+            <MainContent />
           </div>
         </main>
       </div>
