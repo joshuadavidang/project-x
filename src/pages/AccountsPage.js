@@ -32,7 +32,7 @@ const AccountsPage = () => {
         <div className="grid grid-cols-1 gap-4 mt-2 ">
           <div className="bg-white-100 p-3 rounded-lg mb-2">
             <h4 id="name" className="text-lg font-semibold ">
-              {getData.avatarName}
+              {getData.avatarName} - {getData.avatar}
             </h4>
           </div>
         </div>

@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const authenticationSlice = createSlice({
   name: "authentication",
   initialState: {
-    value: { email: "", isAuthenticated: "", uid: "" },
+    value: { email: "", isAuthenticated: "", uid: "", isLoaded: false },
   },
   // functions to alter values
   reducers: {

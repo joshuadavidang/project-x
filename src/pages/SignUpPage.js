@@ -15,6 +15,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 import AvatarSwiper from "../components/AvatarSwiper";
 
 const SignUpPage = () => {
+  const [avatar, setAvatar] = useState("");
   const [avatarName, setAvatarName] = useState("");
   const [email, setEmailState] = useState("");
   const [password, setPasswordState] = useState("");
@@ -28,12 +29,14 @@ const SignUpPage = () => {
 
   const signUpBtn = () => {
     setLoadingAnimation(true);
+    setAvatar("figuring out");
 
     setTimeout(() => {
       const auth = getAuth();
       createUserWithEmailAndPassword(auth, email, password)
         .then(() => {
           updateProfile(auth.currentUser, {
+            photoURL: avatar,
             displayName: avatarName,
           });
 

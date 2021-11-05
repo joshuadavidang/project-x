@@ -35,9 +35,10 @@ const LoginPage = () => {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
-          // console.log(user.email);
+          console.log(user);
           dispatch(
             LOGIN_ACTION({
+              avatar: user.photoURL,
               avatarName: user.displayName,
               email: user.email,
               isAuthenticated: true,

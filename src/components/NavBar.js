@@ -1,88 +1,89 @@
 import React, { useState } from "react";
-import { getAuth, signOut } from "firebase/auth";
-import { useHistory } from "react-router-dom";
-import Swal from "sweetalert2";
+// import { getAuth, signOut } from "firebase/auth";
+// import { useHistory } from "react-router-dom";
+// import Swal from "sweetalert2";
 // import Avatar from "react-avatar";
-import { useDispatch } from "react-redux"; // to access state data, to dispatch data
-import { LOGOUT_ACTION } from "../redux/reducers/authentication";
+import { useDispatch, useSelector } from "react-redux"; // to access state data, to dispatch data
+// import { LOGOUT_ACTION } from "../redux/reducers/authentication";
 import { CONTENT_ACTION } from "../redux/reducers/content";
 import AvatarSwiper from "./AvatarSwiper";
 
 const NavBar = ({ emailData }) => {
-  const history = useHistory();
+  // const history = useHistory();
   const dispatch = useDispatch();
+  const contentData = useSelector((state) => state.contentReducer.value);
 
   const [selectedEngBtnState, setSelectedEngBtnState] = useState(false);
   const [selectedMathBtnState, setSelectedMathBtnState] = useState(false);
-  const [selectedHomeState, setSelectedHomeState] = useState(true);
-  const [selectedAccState, setSelectedAccState] = useState(false);
+  // const [selectedHomeState, setSelectedHomeState] = useState(true);
+  // const [selectedAccState, setSelectedAccState] = useState(false);
 
   const EnglishBtn = () => {
     setSelectedEngBtnState(true);
     setSelectedMathBtnState(false);
-    setSelectedHomeState(false);
-    setSelectedAccState(false);
+    // setSelectedHomeState(false);
+    // setSelectedAccState(false);
     dispatch(CONTENT_ACTION({ subject: "English", isLoaded: true }));
   };
 
   const MathBtn = () => {
     setSelectedMathBtnState(true);
     setSelectedEngBtnState(false);
-    setSelectedAccState(false);
-    setSelectedHomeState(false);
+    // setSelectedAccState(false);
+    // setSelectedHomeState(false);
     dispatch(CONTENT_ACTION({ subject: "Math", isLoaded: true }));
   };
 
-  const goToAccounts = () => {
-    setSelectedAccState(true);
-    setSelectedHomeState(false);
-    setSelectedEngBtnState(false);
-    setSelectedMathBtnState(false);
-    dispatch(CONTENT_ACTION({ subject: "Account", isLoaded: true }));
-  };
+  // const goToAccounts = () => {
+  //   setSelectedAccState(true);
+  //   setSelectedHomeState(false);
+  //   setSelectedEngBtnState(false);
+  //   setSelectedMathBtnState(false);
+  //   dispatch(CONTENT_ACTION({ subject: "Account", isLoaded: true }));
+  // };
 
-  const goToWelcomeBtn = () => {
-    setSelectedHomeState(true);
-    setSelectedAccState(false);
-    setSelectedEngBtnState(false);
-    setSelectedMathBtnState(false);
-    dispatch(CONTENT_ACTION({ isLoaded: false }));
-  };
+  // const goToWelcomeBtn = () => {
+  //   setSelectedHomeState(true);
+  //   setSelectedAccState(false);
+  //   setSelectedEngBtnState(false);
+  //   setSelectedMathBtnState(false);
+  //   dispatch(CONTENT_ACTION({ isLoaded: false }));
+  // };
 
-  const signOutBtn = () => {
-    const auth = getAuth();
-    signOut(auth)
-      .then(() => {
-        Swal.fire({
-          title: "Logout?",
-          text: "You will be signed out",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonText: "Yes",
-          cancelButtonText: "No",
-          reverseButtons: true,
-        }).then((result) => {
-          if (result.isConfirmed) {
-            Swal.fire("", "Logout successful", "success");
-            // Sign-out successful.
-            dispatch(
-              LOGOUT_ACTION({
-                email: emailData,
-                isAuthenticated: false,
-                message: "User signed out",
-              })
-            );
-            dispatch(CONTENT_ACTION({ isLoaded: false }));
-            history.push("/");
-          } else if (result.dismiss === Swal.DismissReason.cancel) {
-            Swal.fire("Welcome back", "", "success");
-          }
-        });
-      })
-      .catch((error) => {
-        // An error happened.
-      });
-  };
+  // const signOutBtn = () => {
+  //   const auth = getAuth();
+  //   signOut(auth)
+  //     .then(() => {
+  //       Swal.fire({
+  //         title: "Logout?",
+  //         text: "You will be signed out",
+  //         icon: "warning",
+  //         showCancelButton: true,
+  //         confirmButtonText: "Yes",
+  //         cancelButtonText: "No",
+  //         reverseButtons: true,
+  //       }).then((result) => {
+  //         if (result.isConfirmed) {
+  //           Swal.fire("", "Logout successful", "success");
+  //           // Sign-out successful.
+  //           dispatch(
+  //             LOGOUT_ACTION({
+  //               email: emailData,
+  //               isAuthenticated: false,
+  //               message: "User signed out",
+  //             })
+  //           );
+  //           dispatch(CONTENT_ACTION({ isLoaded: false }));
+  //           history.push("/");
+  //         } else if (result.dismiss === Swal.DismissReason.cancel) {
+  //           Swal.fire("Welcome back", "", "success");
+  //         }
+  //       });
+  //     })
+  //     .catch((error) => {
+  //       // An error happened.
+  //     });
+  // };
 
   return (
     <div>
@@ -93,11 +94,12 @@ const NavBar = ({ emailData }) => {
             <AvatarSwiper />
           </div>
           <div className="text-center mb-8">
-            <span onClick={goToWelcomeBtn}>{emailData}</span>{" "}
+            <span className="font-mono">{emailData}</span>{" "}
           </div>
 
-          <div className="flex justify-center">
-            {/* ********* Home Icon ********* */}
+          {/* ********* Home Icon ********* */}
+          {/* <div className="flex justify-center">
+        
             <li
               className={
                 selectedHomeState === true
@@ -123,13 +125,15 @@ const NavBar = ({ emailData }) => {
 
               <span>Home</span>
             </li>
-          </div>
+          </div> */}
 
           {/* ********* English Icon ********* */}
           <div className="flex justify-center">
             <li
               className={
-                selectedEngBtnState === true && selectedMathBtnState === false
+                selectedEngBtnState === true &&
+                selectedMathBtnState === false &&
+                contentData.isLoaded === true
                   ? "text-center py-2 border-r-8 w-72 flex p-3 space-x-4 mt-0.5 justify-center cursor-pointer my-2"
                   : "text-center py-2 w-72 flex p-3 space-x-4 mt-0.5 justify-center cursor-pointer my-2"
               }
@@ -150,7 +154,7 @@ const NavBar = ({ emailData }) => {
                 />
               </svg>
 
-              <span>English</span>
+              <span className="font-mono">English</span>
             </li>
           </div>
           {/* ********* Math Icon ********* */}
@@ -158,7 +162,9 @@ const NavBar = ({ emailData }) => {
           <div className="flex justify-center">
             <li
               className={
-                selectedMathBtnState === true && selectedEngBtnState === false
+                selectedMathBtnState === true &&
+                selectedEngBtnState === false &&
+                contentData.isLoaded === true
                   ? "text-center py-2 border-r-8 w-72 flex p-3 space-x-4 mt-0.5 justify-center cursor-pointer my-2"
                   : "text-center py-2 w-72 flex p-3 space-x-4 mt-0.5 justify-center cursor-pointer my-2"
               }
@@ -181,12 +187,12 @@ const NavBar = ({ emailData }) => {
                 />
               </svg>
 
-              <span>Math</span>
+              <span className="font-mono">Math</span>
             </li>
           </div>
 
           {/* ********* Account Icon ********* */}
-          <div className="flex justify-center">
+          {/* <div className="flex justify-center">
             <li
               className={
                 selectedAccState === true
@@ -212,10 +218,10 @@ const NavBar = ({ emailData }) => {
 
               <span>Accounts</span>
             </li>
-          </div>
+          </div> */}
 
           {/* ********* Log Out Icon *********  */}
-          <div className="flex justify-center">
+          {/* <div className="flex justify-center">
             <li
               className="text-center py-2 flex w-72 p-3 space-x-4 mt-0.5 justify-center cursor-pointer my-2"
               onClick={signOutBtn}
@@ -236,7 +242,7 @@ const NavBar = ({ emailData }) => {
               </svg>
               <span>Log Out</span>{" "}
             </li>
-          </div>
+          </div> */}
         </nav>
       </ul>
     </div>

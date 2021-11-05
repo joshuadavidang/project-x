@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux"; // to access state data, to dispatch data
 import MainContent from "../components/MainContent";
 import NavBar from "../components/NavBar";
@@ -13,7 +13,8 @@ const LandingPage = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const getData = useSelector((state) => state.authenticationReducer.value);
-  console.log(getData);
+  const contentData = useSelector((state) => state.contentReducer.value);
+  console.log(contentData);
 
   useEffect(() => {
     if (getData.isAuthenticated == false) {
@@ -22,6 +23,21 @@ const LandingPage = () => {
       //history.push("/");
     }
   });
+
+  const [Inventory, setInventory] = useState(false);
+  const [Account, setAccount] = useState(false);
+
+  const accountBtn = () => {
+    setInventory(false);
+    setAccount(true);
+    dispatch(CONTENT_ACTION({ subject: "Account", isLoaded: true }));
+  };
+
+  const inventoryBtn = () => {
+    setAccount(false);
+    setInventory(true);
+    dispatch(CONTENT_ACTION({ isLoaded: false }));
+  };
 
   const signOutBtn = () => {
     const auth = getAuth();
@@ -70,11 +86,18 @@ const LandingPage = () => {
             <MainContent />
           </div>
 
-          <div className="bg-gray-100 h-1/6 flex justify-end items-center space-x-12 pr-12">
-            <div className="flex items-center space-x-4">
+          <div className="bg-gray-100 h-1/6 flex justify-end items-center space-x-8 pr-12">
+            <div
+              onClick={inventoryBtn}
+              className={
+                Inventory === true || contentData.isLoaded === false
+                  ? "flex items-center space-x-2 cursor-pointer bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 hover:from-pink-500 hover:to-yellow-500 text-white px-4 py-3 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
+                  : "flex items-center space-x-2 cursor-pointer"
+              }
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-12 w-12"
+                className="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -83,17 +106,24 @@ const LandingPage = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2}
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"
                 />
               </svg>
 
-              <span>Inventory</span>
+              <span className="font-mono">Inventory</span>
             </div>
 
-            <div className="flex items-center space-x-4">
+            <div
+              onClick={accountBtn}
+              className={
+                Account === true
+                  ? "flex items-center space-x-2 cursor-pointer bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 hover:from-pink-500 hover:to-yellow-500 text-white px-4 py-3 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block"
+                  : "flex items-center space-x-2 cursor-pointer"
+              }
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-12 w-12"
+                className="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -101,16 +131,16 @@ const LandingPage = () => {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  strokeWidth="2"
+                  d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <span>Account</span>
+              <span className="font-mono">Account</span>
             </div>
 
             <div
               onClick={signOutBtn}
-              className="flex items-center space-x-3 cursor-pointer"
+              className="flex items-center space-x-2 cursor-pointer"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -127,7 +157,7 @@ const LandingPage = () => {
                 />
               </svg>
 
-              <span>Log Out</span>
+              <span className="font-mono">Log Out</span>
             </div>
           </div>
         </main>

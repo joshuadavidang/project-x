@@ -1,4 +1,5 @@
 import React from "react";
+import AvatarSwiper from "./AvatarSwiper";
 // import SearchBar from "./SearchBar";
 
 const Welcome = () => {
@@ -6,14 +7,10 @@ const Welcome = () => {
     <div className=" h-screen flex justify-center items-center ">
       <div className="max-w-sm p-6 rounded-md tracking-wide shadow-lg">
         <div id="header" className="flex items-center mb-4">
-          <img
-            alt="avatar"
-            className="w-20 rounded-full border-2 border-gray-300"
-            src="https://picsum.photos/seed/picsum/200"
-          />
+          <AvatarSwiper />
           <div id="header-text" className="leading-5 ml-6 sm">
             <h4 id="name" className="text-xl font-semibold">
-              Welcome Page
+              INVENTORY
             </h4>
           </div>
         </div>
