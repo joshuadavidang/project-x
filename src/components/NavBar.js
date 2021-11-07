@@ -3,7 +3,7 @@ import React, { useState } from "react";
 // import { useHistory } from "react-router-dom";
 // import Swal from "sweetalert2";
 // import Avatar from "react-avatar";
-import { useDispatch  } from "react-redux"; // to access state data, to dispatch data
+import { useDispatch } from "react-redux"; // to access state data, to dispatch data
 // import { LOGOUT_ACTION } from "../redux/reducers/authentication";
 import { CONTENT_ACTION } from "../redux/reducers/content";
 import AvatarSwiper from "./AvatarSwiper";
