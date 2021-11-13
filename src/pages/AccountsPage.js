@@ -24,7 +24,7 @@ const AccountsPage = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen">
+    <div className="flex justify-center items-center h-screen">
       <div className="p-10 w-auto rounded-md tracking-wide shadow-lg ">
         {/* <Avatar name={getData.email} size="100" round={true} /> */}
         <AvatarSwiper />

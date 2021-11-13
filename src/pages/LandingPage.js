@@ -87,7 +87,7 @@ const LandingPage = () => {
           className="w-screen text-center h-screen overflow-hidden"
         >
           {/* ****** Main Content ****** (2 rows) */}
-          <div className="h-5/6 flex justify-center items-center">
+          <div className="h-5/6">
             <MainContent />
           </div>
 

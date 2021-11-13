@@ -96,7 +96,7 @@ const NavBar = ({ avatarData }) => {
           <div className="text-center mb-6">
             <span className="font-bold font-mono">Hey,</span>{" "}
             <span className="font-mono">
-              {avatarData} {""} 👋
+              {avatarData} {""}
             </span>{" "}
           </div>
 

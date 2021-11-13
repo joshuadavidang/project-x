@@ -15,6 +15,8 @@ function App() {
         <Route path="/signup" component={SignUpPage} />
         <Route path="/landingpage" component={LandingPage} />
         <Route path="/forgetpassword" component={ForgetPassword} />
+        {/* Development Purposes */}
+        {/* <Route path="/" component={LandingPage} /> */}
       </Switch>
     </Router>
   );
