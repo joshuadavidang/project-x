@@ -4,12 +4,12 @@ let EnglishContent = [
   {
     id: uuidv4(),
     subject: "English",
-    chapter: 1,
+    chapter: "Grammar",
     updated: new Date().toDateString(),
   },
   {
     id: uuidv4(),
-    subject: "English",
+    subject: "Verbs",
     chapter: 2,
     updated: new Date().toDateString(),
   },
