@@ -9,7 +9,7 @@ const EnglishPage = () => {
     // Main Div
     <div>
       <div className="px-24 py-10 text-start">
-        <span className="font-bold font-mono text-2xl">English</span>{" "}
+        <span className="font-bold font-mono text-2xl">English V2.1</span>{" "}
         {/* <span className="font-mono text-xl">
           {getData.avatarName}! {""} 👋
         </span>{" "} */}
