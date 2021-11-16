@@ -26,7 +26,7 @@ const EnglishPage = () => {
               />
               <div id="header-text" className="leading-5 ml-6 sm">
                 <h4 id="name" className="text-xl font-semibold">
-                  Chapter {data.chapter}
+                  {data.chapter}
                 </h4>
               </div>
             </div>

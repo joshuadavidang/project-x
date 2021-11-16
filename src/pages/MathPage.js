@@ -2,6 +2,8 @@ import React from "react";
 import MathContent from "../data/MathContent";
 
 const MathPage = () => {
+  // console.log(MathContent[0].content);
+
   return (
     // Main Div
     <div>

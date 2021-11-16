@@ -3,6 +3,7 @@ import { useSelector } from "react-redux"; // to access state data, to dispatch 
 import AccountsPage from "../pages/AccountsPage";
 import EnglishPage from "../pages/EnglishPage";
 import MathPage from "../pages/MathPage";
+import SciencePage from "../pages/SciencePage";
 import Welcome from "./Welcome";
 
 const MainContent = () => {
@@ -11,7 +12,9 @@ const MainContent = () => {
 
   return (
     <div>
-      {getData.subject === "English" && getData.isLoaded === true ? (
+      {getData.subject === "Science" && getData.isLoaded === true ? (
+        <SciencePage />
+      ) : getData.subject === "English" && getData.isLoaded === true ? (
         <EnglishPage />
       ) : getData.subject === "Math" && getData.isLoaded === true ? (
         <MathPage />

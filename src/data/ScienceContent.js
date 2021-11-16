@@ -1,18 +1,18 @@
 import { v4 as uuidv4 } from "uuid";
 
-let EnglishContent = [
+let ScienceContent = [
   {
     id: uuidv4(),
-    subject: "English",
-    chapter: "Grammar",
+    subject: "Science",
+    chapter: "Life Cycle",
     updated: new Date().toDateString(),
   },
   {
     id: uuidv4(),
-    subject: "English",
-    chapter: "Verbs",
+    subject: "Science",
+    chapter: "Fungi",
     updated: new Date().toDateString(),
   },
 ];
 
-export default EnglishContent;
+export default ScienceContent;
