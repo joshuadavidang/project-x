@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 import ForgetPasswordImage from "../assets/images/forgetpassword.svg";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import BeatLoader from "react-spinners/BeatLoader";
 
 const ForgetPassword = () => {
   const [email, setEmailState] = useState("");
   const [loadingAnimation, setLoadingAnimation] = useState(false);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const resetPassword = () => {
     setLoadingAnimation(true);
@@ -20,7 +20,7 @@ const ForgetPassword = () => {
         .then(() => {
           // Password reset email sent!
           Swal.fire("", "Check your email for further instructions", "success");
-          history.push("/loginpage");
+          navigate("/loginpage");
         })
         .catch((error) => {
           const errorMessage = error.message;

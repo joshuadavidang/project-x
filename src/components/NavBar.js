@@ -1,106 +1,49 @@
 import React, { useState } from "react";
 // import { getAuth, signOut } from "firebase/auth";
-// import { useHistory } from "react-router-dom";
 // import Swal from "sweetalert2";
 // import Avatar from "react-avatar";
-import { useDispatch } from "react-redux"; // to access state data, to dispatch data
+// import { useSelector } from "react-redux"; // to access state data, to dispatch data
+import { useNavigate } from "react-router";
 // import { LOGOUT_ACTION } from "../redux/reducers/authentication";
-import { CONTENT_ACTION } from "../redux/reducers/content";
+// import { CONTENT_ACTION } from "../redux/reducers/content";
 import AvatarSwiper from "./AvatarSwiper";
 
 const NavBar = ({ avatarData }) => {
-  // const history = useHistory();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
+  const navigate = useNavigate();
   // const contentData = useSelector((state) => state.contentReducer.value);
 
   const [selectedEngBtnState, setSelectedEngBtnState] = useState(false);
   const [selectedMathBtnState, setSelectedMathBtnState] = useState(false);
   const [selectedScienceState, setSelectedScienceState] = useState(false);
-  // const [selectedHomeState, setSelectedHomeState] = useState(true);
-  // const [selectedAccState, setSelectedAccState] = useState(false);
 
   const ScienceBtn = () => {
     setSelectedScienceState(true);
     setSelectedMathBtnState(false);
     setSelectedEngBtnState(false);
-    dispatch(CONTENT_ACTION({ subject: "Science", isLoaded: true }));
+    navigate("/sciencepage");
   };
 
   const EnglishBtn = () => {
     setSelectedEngBtnState(true);
     setSelectedMathBtnState(false);
     setSelectedScienceState(false);
-    // setSelectedHomeState(false);
-    // setSelectedAccState(false);
-    dispatch(CONTENT_ACTION({ subject: "English", isLoaded: true }));
+    navigate("/englishpage");
   };
 
   const MathBtn = () => {
     setSelectedMathBtnState(true);
     setSelectedEngBtnState(false);
     setSelectedScienceState(false);
-    // setSelectedAccState(false);
-    // setSelectedHomeState(false);
-    dispatch(CONTENT_ACTION({ subject: "Math", isLoaded: true }));
+    navigate("/mathpage");
   };
-
-  // const goToAccounts = () => {
-  //   setSelectedAccState(true);
-  //   setSelectedHomeState(false);
-  //   setSelectedEngBtnState(false);
-  //   setSelectedMathBtnState(false);
-  //   dispatch(CONTENT_ACTION({ subject: "Account", isLoaded: true }));
-  // };
-
-  // const goToWelcomeBtn = () => {
-  //   setSelectedHomeState(true);
-  //   setSelectedAccState(false);
-  //   setSelectedEngBtnState(false);
-  //   setSelectedMathBtnState(false);
-  //   dispatch(CONTENT_ACTION({ isLoaded: false }));
-  // };
-
-  // const signOutBtn = () => {
-  //   const auth = getAuth();
-  //   signOut(auth)
-  //     .then(() => {
-  //       Swal.fire({
-  //         title: "Logout?",
-  //         text: "You will be signed out",
-  //         icon: "warning",
-  //         showCancelButton: true,
-  //         confirmButtonText: "Yes",
-  //         cancelButtonText: "No",
-  //         reverseButtons: true,
-  //       }).then((result) => {
-  //         if (result.isConfirmed) {
-  //           Swal.fire("", "Logout successful", "success");
-  //           // Sign-out successful.
-  //           dispatch(
-  //             LOGOUT_ACTION({
-  //               email: emailData,
-  //               isAuthenticated: false,
-  //               message: "User signed out",
-  //             })
-  //           );
-  //           dispatch(CONTENT_ACTION({ isLoaded: false }));
-  //           history.push("/");
-  //         } else if (result.dismiss === Swal.DismissReason.cancel) {
-  //           Swal.fire("Welcome back", "", "success");
-  //         }
-  //       });
-  //     })
-  //     .catch((error) => {
-  //       // An error happened.
-  //     });
-  // };
 
   return (
     <div>
       <ul className="flex flex-col overflow-hidden">
+        {/* <nav className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 flex flex-col h-4/5 px-4 py-4 mt-6 ml-9 text-white rounded-3xl "> */}
         <nav className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 flex flex-col h-screen px-4 text-white rounded-r-3xl ">
           <div className="flex justify-center m-8">
-            {/* <Avatar name={emailData} size="100" round={true} /> */}
             <AvatarSwiper />
           </div>
           <div className="text-center mb-6">
@@ -109,42 +52,6 @@ const NavBar = ({ avatarData }) => {
               {avatarData} {""} 👋
             </span>{" "}
           </div>
-
-          {/* <div className="flex justify-center">
-            <span className="font-mono pb-2 tracking-wide underline">
-              Subject
-            </span>
-          </div> */}
-
-          {/* ********* Home Icon ********* */}
-          {/* <div className="flex justify-center">
-        
-            <li
-              className={
-                selectedHomeState === true
-                  ? "text-center py-2 border-r-8 w-72 flex p-3 space-x-4 mt-0.5 justify-center cursor-pointer my-2 "
-                  : "text-center py-2 w-72  flex p-3 space-x-4 mt-0.5 justify-center cursor-pointer my-2"
-              }
-              onClick={goToWelcomeBtn}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                />
-              </svg>
-
-              <span>Home</span>
-            </li>
-          </div> */}
 
           {/* ********* Science Icon ********* */}
           <div className="flex justify-center">
@@ -206,6 +113,7 @@ const NavBar = ({ avatarData }) => {
               <span className="font-mono">English</span>
             </li>
           </div>
+
           {/* ********* Math Icon ********* */}
           {/* eslint-disable-next-line */}
           <div className="flex justify-center">
@@ -237,59 +145,6 @@ const NavBar = ({ avatarData }) => {
               <span className="font-mono">Math</span>
             </li>
           </div>
-
-          {/* ********* Account Icon ********* */}
-          {/* <div className="flex justify-center">
-            <li
-              className={
-                selectedAccState === true
-                  ? "text-center py-2 border-r-8 w-72 flex p-3 space-x-4 mt-0.5 justify-center cursor-pointer my-2"
-                  : "text-center py-2  w-72 flex p-3 space-x-4 mt-0.5 justify-center cursor-pointer my-2"
-              }
-              onClick={goToAccounts}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                />
-              </svg>
-
-              <span>Accounts</span>
-            </li>
-          </div> */}
-
-          {/* ********* Log Out Icon *********  */}
-          {/* <div className="flex justify-center">
-            <li
-              className="text-center py-2 flex w-72 p-3 space-x-4 mt-0.5 justify-center cursor-pointer my-2"
-              onClick={signOutBtn}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-                />
-              </svg>
-              <span>Log Out</span>{" "}
-            </li>
-          </div> */}
         </nav>
       </ul>
     </div>

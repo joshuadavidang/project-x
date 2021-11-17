@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 // eslint-disable-next-line
 import app from "../firebase";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 // import Login from "../assets/images/login.svg";
 import BeatLoader from "react-spinners/BeatLoader";
@@ -18,7 +18,7 @@ const LoginPage = () => {
   const [password, setPasswordState] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loadingAnimation, setLoadingAnimation] = useState(false);
-  const history = useHistory();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.authenticationReducer.value);
 
@@ -48,7 +48,7 @@ const LoginPage = () => {
 
           setIsAuthenticated(true);
           Swal.fire("", "Signed in successful", "success");
-          history.push("/landingpage");
+          navigate("/landingpage");
 
           // if (user.emailVerified === true) {
           //   setIsAuthenticated(true);

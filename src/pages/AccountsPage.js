@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import Avatar from "react-avatar";
 import AvatarSwiper from "../components/AvatarSwiper";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { CONTENT_ACTION } from "../redux/reducers/content";
 import BeatLoader from "react-spinners/BeatLoader";
@@ -11,7 +11,7 @@ const AccountsPage = () => {
   const getData = useSelector((state) => state.authenticationReducer.value);
   console.log(getData);
 
-  const history = useHistory();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const forgetPassword = () => {
@@ -19,7 +19,7 @@ const AccountsPage = () => {
     setTimeout(() => {
       setLoading(false);
       dispatch(CONTENT_ACTION({ isLoaded: false }));
-      history.push("/forgetpassword");
+      navigate("/forgetpassword");
     }, 600);
   };
 

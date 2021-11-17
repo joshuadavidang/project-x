@@ -8,7 +8,7 @@ import {
 } from "firebase/auth";
 // eslint-disable-next-line
 import app from "../firebase";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import Swal from "sweetalert2";
 import BeatLoader from "react-spinners/BeatLoader";
@@ -26,7 +26,7 @@ const SignUpPage = () => {
   //   console.log(isAuthenticated);
   // }, []);
 
-  let history = useHistory();
+  let navigate = useNavigate();
 
   const signUpBtn = () => {
     setLoadingAnimation(true);
@@ -37,12 +37,12 @@ const SignUpPage = () => {
       createUserWithEmailAndPassword(auth, email, password)
         .then(() => {
           updateProfile(auth.currentUser, {
-            photoURL: 'incoming',
+            photoURL: "incoming",
             displayName: avatarName,
           });
 
           Swal.fire("", "Account registered", "success");
-          history.push("/loginpage");
+          navigate("/loginpage");
 
           // sendEmailVerification(auth.currentUser).then(() => {
           //   Swal.fire(

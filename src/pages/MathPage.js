@@ -16,7 +16,10 @@ const MathPage = () => {
 
       <div className="flex flex-row px-24 gap-x-14">
         {MathContent.map((data) => (
-          <div className="max-w-sm p-6 rounded-md tracking-wide shadow-lg bg-white">
+          <div
+            className="max-w-sm p-6 rounded-md tracking-wide shadow-lg bg-white"
+            key={data.id}
+          >
             <div id="header" className="flex items-center mb-4">
               <img
                 alt="avatar"

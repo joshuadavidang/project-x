@@ -9,7 +9,7 @@ const EnglishPage = () => {
     // Main Div
     <div>
       <div className="px-24 py-10 text-start">
-        <span className="font-bold font-mono text-2xl">English V2.1</span>{" "}
+        <span className="font-bold font-mono text-2xl">English</span>{" "}
         {/* <span className="font-mono text-xl">
           {getData.avatarName}! {""} 👋
         </span>{" "} */}
@@ -17,7 +17,10 @@ const EnglishPage = () => {
 
       <div className="flex flex-row px-24 gap-x-14">
         {EnglishContent.map((data) => (
-          <div className="max-w-sm p-6 rounded-md tracking-wide shadow-lg bg-white">
+          <div
+            className="max-w-sm p-6 rounded-md tracking-wide shadow-lg bg-white"
+            key={data.id}
+          >
             <div id="header" className="flex items-center mb-4">
               <img
                 alt="avatar"

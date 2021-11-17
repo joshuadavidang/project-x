@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { PulseLoader } from "react-spinners";
 
 const PreLoginPage = () => {
   const [loadingAnimation, setLoadingAnimation] = useState(false);
-  let history = useHistory();
+  let navigate = useNavigate();
 
   const playBtn = () => {
     setLoadingAnimation(true);
     setTimeout(() => {
       setLoadingAnimation(false);
-      history.push("/loginpage");
+      navigate("/loginpage");
     }, 800);
   };
 
