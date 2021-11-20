@@ -21,21 +21,21 @@ const NavBar = ({ avatarData }) => {
     setSelectedScienceState(true);
     setSelectedMathBtnState(false);
     setSelectedEngBtnState(false);
-    navigate("/sciencepage");
+    navigate("/app/sciencepage");
   };
 
   const EnglishBtn = () => {
     setSelectedEngBtnState(true);
     setSelectedMathBtnState(false);
     setSelectedScienceState(false);
-    navigate("/englishpage");
+    navigate("/app/englishpage");
   };
 
   const MathBtn = () => {
     setSelectedMathBtnState(true);
     setSelectedEngBtnState(false);
     setSelectedScienceState(false);
-    navigate("/mathpage");
+    navigate("/app/mathpage");
   };
 
   return (

@@ -48,7 +48,7 @@ const LoginPage = () => {
 
           setIsAuthenticated(true);
           Swal.fire("", "Signed in successful", "success");
-          navigate("/landingpage");
+          navigate("/app");
 
           // if (user.emailVerified === true) {
           //   setIsAuthenticated(true);
@@ -190,7 +190,7 @@ const LoginPage = () => {
 
               <p className="text-center pt-7 text-gray-600 text-sm font-mono">
                 Don't have an account? Register{" "}
-                <Link to="/signup">
+                <Link to="/signuppage">
                   <span className="hover:text-green-400 underline font-bold">
                     here
                   </span>

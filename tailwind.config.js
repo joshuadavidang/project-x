@@ -6,6 +6,8 @@ module.exports = {
       backgroundImage: {
         "ezreal-image":
           "url(/Users/joshua-david/project-x/src/assets/images/ez.jpg)",
+        "sea-image":
+          "url(/Users/joshua-david/project-x/src/assets/images/sea.jpg)",
       },
     },
   },

@@ -7,7 +7,7 @@ const SciencePage = () => {
 
   const getDetailsBtn = (data) => {
     // console.log(data.themeOpener);
-    navigate(`/sciencepage/${data.theme}`);
+    navigate(`/app/sciencepage/${data.theme}`);
   };
 
   return (
@@ -20,8 +20,9 @@ const SciencePage = () => {
       <div className="flex flex-row flex-wrap px-24 gap-x-14 gap-y-10 cursor-pointer font-mono">
         {ScienceContent.map((data) => (
           <div
-            className="w-3/12 p-16 rounded-md shadow-lg bg-white"
+            className="w-3/12 p-16 rounded-md shadow-lg bg-white bg-cover bg-no-repeat bg-sea-image text-white"
             onClick={() => getDetailsBtn(data)}
+            key={data.id}
           >
             <div className="flex justify-center">
               <p id="name" className="text-lg font-semibold">
