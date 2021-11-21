@@ -17,7 +17,7 @@ import DetailedContentPage from "./pages/DetailedData/DetailedContentPage";
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter basename="/project-x">
       <Routes>
         <Route path="/" element={<PreLoginPage />} />
         <Route path="/loginpage" element={<LoginPage />} />
