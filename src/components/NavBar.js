@@ -2,16 +2,18 @@ import React, { useState } from "react";
 // import { getAuth, signOut } from "firebase/auth";
 // import Swal from "sweetalert2";
 // import Avatar from "react-avatar";
-// import { useSelector } from "react-redux"; // to access state data, to dispatch data
+import { useSelector } from "react-redux"; // to access state data, to dispatch data
 import { useNavigate } from "react-router";
 // import { LOGOUT_ACTION } from "../redux/reducers/authentication";
 // import { CONTENT_ACTION } from "../redux/reducers/content";
 import AvatarSwiper from "./AvatarSwiper";
 
-const NavBar = ({ avatarData }) => {
+const NavBar = () => {
   // const dispatch = useDispatch();
   const navigate = useNavigate();
   // const contentData = useSelector((state) => state.contentReducer.value);
+
+  const user = useSelector((state) => state.authenticationReducer.value);
 
   const [selectedEngBtnState, setSelectedEngBtnState] = useState(false);
   const [selectedMathBtnState, setSelectedMathBtnState] = useState(false);
@@ -49,7 +51,7 @@ const NavBar = ({ avatarData }) => {
           <div className="text-center mb-6">
             <span className="font-bold font-mono">Hey,</span>{" "}
             <span className="font-mono">
-              {avatarData} {""} 👋
+              {user.avatarName} {""} 👋
             </span>{" "}
           </div>
 

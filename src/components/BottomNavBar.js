@@ -136,7 +136,7 @@ const BottomNavBar = () => {
             />
           </svg>
 
-          <span className="font-mono text-sm">Exit</span>
+          <span className="font-mono text-sm">Log Out</span>
         </div>
       </div>
     </div>

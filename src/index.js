@@ -19,11 +19,13 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter basename="/project-x">
       <Routes>
+        {/* Routes without Nav Side Bar */}
         <Route path="/" element={<PreLoginPage />} />
         <Route path="/loginpage" element={<LoginPage />} />
         <Route path="/signuppage" element={<SignUpPage />} />
         <Route path="/forgetpassword" element={<ForgetPassword />} />
 
+        {/* Routes with Nav Side Bar */}
         <Route path="/app" element={<App />}>
           {/* Children Route Component */}
           <Route path="sciencepage" element={<SciencePage />} />
