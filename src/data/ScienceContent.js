@@ -29,18 +29,21 @@ let ScienceContent = [
     id: uuidv4(),
     subject: "Science",
     theme: "Systems",
+    themeOpener: ["s1", "s2", "s3"],
     updated: new Date().toDateString(),
   },
   {
     id: uuidv4(),
     subject: "Science",
     theme: "Interactions",
+    themeOpener: ["i1", "i2", "i3"],
     updated: new Date().toDateString(),
   },
   {
     id: uuidv4(),
     subject: "Science",
     theme: "Energy",
+    themeOpener: ["e1", "e2", "e3"],
     updated: new Date().toDateString(),
   },
 ];
