@@ -1,7 +1,7 @@
 # Project X
 
-e-LEARNING Portal for Students <br />
-Developed by Joshua David Ang <br />
+Online learning platform for students <br />
+Developed by Joshua David Ang :cowboy_hat_face: <br />
 
 ### Commencement of Project
 
