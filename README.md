@@ -1,7 +1,7 @@
 # Project X
 
 Online learning platform for students <br />
-Developed by Joshua David Ang :cowboy_hat_face: <br />
+Developed by Joshua David Ang <br />
 
 ### Commencement of Project
 
